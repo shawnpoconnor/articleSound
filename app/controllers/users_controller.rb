@@ -44,8 +44,12 @@ class UsersController < ApplicationController
   end
 
   def password
-    @user = current_user
-    render 'password'
+    if logged_in?
+      @user = current_user
+      render 'password'
+    else
+      redirect_to login_url
+    end
   end
 
   def update_password

@@ -10,15 +10,18 @@
     <%= f.email_field :email %>
    </div>
 
-  <div>
-    <%= f.label :password, "password: " %>
-    <%= f.password_field :password %>
-  </div>
+  <% if !@current_user%>
+    <div>
+      <%= f.label :password, "password: " %>
+      <%= f.password_field :password %>
+    </div>
 
     <div>
       <%= f.label :password_confirmation, "re-enter password:" %>
       <%= f.password_field :password_confirmation %>
     </div>
+  <%end%>
 
   <%= f.submit yield(:button_text) %>
+  
 <% end %>
