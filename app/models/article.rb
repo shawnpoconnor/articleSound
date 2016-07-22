@@ -5,4 +5,7 @@ class Article < ApplicationRecord
   validates :text, presence:true, uniqueness:true
   validates :url, presence:true, uniqueness:true
   validates :domain, presence:true
+
+  after_save :url_check
+
 end
