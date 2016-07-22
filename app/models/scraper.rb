@@ -45,5 +45,3 @@ class Scraper
     end
   end
 end
-
-puts a = Scraper.new("https://medium.com/welcome-to-the-scream-room/im-with-the-banned-8d1b6e0b2932#.8g5q0iqgp")
