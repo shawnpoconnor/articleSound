@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'nokogiri'
+require 'pry'
 class Scraper
   CONTENT_TAG = { "medium.com": ".postArticle-content",
                 "espn.go.com": ".article",
@@ -37,9 +40,10 @@ class Scraper
   end
 
   def text_length
-    binding.pry
-    if text > 5000
+    if text.length > 5000
       @text = text[0,4999]
     end
   end
 end
+
+puts a = Scraper.new("https://medium.com/welcome-to-the-scream-room/im-with-the-banned-8d1b6e0b2932#.8g5q0iqgp")
