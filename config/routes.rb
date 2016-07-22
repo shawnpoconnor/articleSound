@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root "application#index"
   get '/register', to: "users#new"
   get '/login', to: "sessions#new"
@@ -7,4 +8,6 @@ Rails.application.routes.draw do
 
   resources :users, except: [:new, :index]
   resources :articles, only: [:new, :create]
+  resources :audios
+
 end
