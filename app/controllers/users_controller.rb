@@ -39,6 +39,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    log_out
     User.find(params[:id]).destroy
     redirect_to root_url
   end
