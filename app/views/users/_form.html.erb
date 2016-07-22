@@ -1,0 +1,24 @@
+<%= form_for(@user) do |f| %>
+
+  <div>
+    <%= f.label :username, "username: "%>
+    <%= f.text_field :username %>
+  </div>
+
+  <div>
+    <%= f.label :email, "email: "%>
+    <%= f.email_field :email %>
+   </div>
+
+  <div>
+    <%= f.label :password, "password: " %>
+    <%= f.password_field :password %>
+  </div>
+
+    <div>
+      <%= f.label :password_confirmation, "re-enter password:" %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+
+  <%= f.submit yield(:button_text) %>
+<% end %>
