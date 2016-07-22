@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <nav>
+      <%=link_to "register", register_path%>
+      <%=link_to "login", login_path%>
+      <%=link_to "logout", logout_path, method:"delete"%>
+    </nav>
     <%= yield %>
   </body>
 </html>
