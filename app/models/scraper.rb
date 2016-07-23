@@ -4,7 +4,8 @@ require 'pry'
 class Scraper
   CONTENT_TAG = { "medium.com": ".postArticle-content",
                 "espn.go.com": ".article",
-                "www.npr.org": ".story"
+                "www.npr.org": ".story",
+                "www.cnn.com": "#body-text"
                 }
 
   attr_reader :url, :domain, :text
