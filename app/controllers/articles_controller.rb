@@ -15,8 +15,9 @@ class ArticlesController < ApplicationController
 
     if @article.save
       @article.call_watson
+      # binding.pry
       @audio = Audio.create!(track: File.open("#{Rails.root}/app/assets/audio/article#{@article.id}.ogg"))
-      @article.aws_url = self.track.url
+      @article.aws_url = @audio.track.url
       @article.save
       render 'articles/show'
     else
@@ -31,7 +32,7 @@ class ArticlesController < ApplicationController
   end
 
 private
-  
+
   def article_params
     params.require(:article).permit(:url)
   end

@@ -1,7 +1,7 @@
 <div class='center-align'>
-  <%= render 'shared/error_messages', object: f.object %>
-  <%= form_for(@user) do |f| %>
 
+  <%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
     <div class='input-field'>
       <%= f.label :username, "username: "%>
       <%= f.text_field :username %>
