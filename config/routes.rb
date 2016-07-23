@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   patch '/password', to:"users#update_password"
 
   resources :users, except: [:new, :index] 
-  resources :articles, only: [:new, :create]
+  resources :articles, only: [:new, :create, :show]
   resources :audios
 
 end

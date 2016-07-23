@@ -43,7 +43,6 @@ class Scraper
   def scrape_text
     tag   = CONTENT_TAG[domain.to_sym]
     doc   = Nokogiri::HTML(open(url))
-    binding.pry
     @text = doc.css(tag).text
   end
 

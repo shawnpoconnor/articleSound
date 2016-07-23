@@ -15,15 +15,19 @@ class ArticlesController < ApplicationController
 
     if @article.save
       @article.call_watson
-      binding.pry
       @audio = Audio.create!(track: File.open("#{Rails.root}/app/assets/audio/article#{@article.id}.ogg"))
-      @article.aws_url = @audio.track.url
+      @article.aws_url = self.track.url
       @article.save
-      render 'audios/show'
+      render 'articles/show'
     else
       flash[:notice]="Invalid URL."
       redirect_to current_user
     end
+  end
+
+  def show
+    @article = Article.find_by(id: params[:id])
+    render 'articles/show'
   end
 
 private
