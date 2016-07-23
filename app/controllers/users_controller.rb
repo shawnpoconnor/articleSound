@@ -39,8 +39,31 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    log_out
     User.find(params[:id]).destroy
     redirect_to root_url
+  end
+
+  def password
+    if logged_in?
+      @user = current_user
+      render 'password'
+    else
+      redirect_to login_url
+    end
+  end
+
+  def update_password
+    @user = current_user
+    if @user.authenticate(params[:user][:current_password]) && @user.update_attributes(password_params)
+      flash[:notice]="Password changed."
+      redirect_to @user
+    elsif @user.errors.count > 0
+      render 'password'
+    else
+      @errors= "Wrong password. Please enter your current password."
+      render 'password'
+    end
   end
 
   private
@@ -57,6 +80,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
+  end
+
+
+  def password_params
+    params.require(:user).permit(:password, :password_confirmation)
   end
 
 end

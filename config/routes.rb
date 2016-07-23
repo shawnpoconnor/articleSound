@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
+  get '/new-password', to:"users#password"
+  patch '/password', to:"users#update_password"
 
-  resources :users, except: [:new, :index]
+  resources :users, except: [:new, :index] 
   resources :articles, only: [:new, :create]
   resources :audios
 
