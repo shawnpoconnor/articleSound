@@ -2,10 +2,11 @@ require 'open-uri'
 require 'nokogiri'
 require 'pry'
 class Scraper
-  CONTENT_TAG = { "medium.com": ".postArticle-content",
-                "espn.go.com": ".article",
-                "www.npr.org": ".story",
-                "www.cnn.com": "#body-text"
+  CONTENT_TAG = { "medium.com":  ".postArticle-content",
+                  "espn.go.com": ".article",
+                  "www.npr.org": ".story",
+                  "www.cnn.com": "#body-text"
+                  "www.bbc.com": ".story-body__inner"
                 }
 
   attr_reader :url, :domain, :text
@@ -26,18 +27,20 @@ class Scraper
   end
 
   def get_domain(url)
-    uri = URI.parse(url)
+    uri    = URI.parse(url)
     domain = uri.host
   end
 
   def scrape_text
-    tag = CONTENT_TAG[domain.to_sym]
-    doc = Nokogiri::HTML(open(url))
+    tag   = CONTENT_TAG[domain.to_sym]
+    doc   = Nokogiri::HTML(open(url))
     @text = doc.css(tag).text
   end
 
   def white_space_cleaner
     self.text.gsub!(/\s{2,}|\\n/, " ")
+    self.text.gsub!(/\s+/, " ")
+    self.text.gsub!(/<a\s\S+">|<\/a>/, " ")
   end
 
   def text_length
