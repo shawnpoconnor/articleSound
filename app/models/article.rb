@@ -6,6 +6,8 @@ class Article < ApplicationRecord
   validates :url, presence:true, uniqueness:true
   validates :domain, presence:true
 
-  after_save :url_check
+  def call_watson
+    `curl -g -X POST -u \"#{ENV['WATSON_CREDS_USERNAME']}\":\"#{ENV['WATSON_CREDS_PASSWORD']}\" --header \"Content-Type:application/json\" --header \"Accept:audio/ogg\" --data \"{\\"text\\": \\"#{self.text}\\"}\" --output app/assets/audio/article#{self.id}.ogg \"https://stream.watsonplatform.net/text-to-speech/api/v1/synthesize?voice=en-US_AllisonVoice\"`
+  end
 
 end
