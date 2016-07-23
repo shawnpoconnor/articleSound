@@ -5,7 +5,8 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.find_or_initialize_by(article_params)
     if @article.valid?
-      #redirect them to the audio file
+      @user = current_user
+      render 'users/show'
     end
 
     scraper = Scraper.new(@article.url)
@@ -14,13 +15,11 @@ class ArticlesController < ApplicationController
 
     if @article.save
       @article.call_watson
-      # run check for audio file received
-        @audio = Audio.new(track: "/assets/audio/article#{@article.id}")
-      redirect_to current_user
-      #send it to watson
-      #let watson save the file locally
-      #upload file to s3
-      #get aws url
+      binding.pry
+      @audio = Audio.create!(track: File.open("#{Rails.root}/app/assets/audio/article#{@article.id}.ogg"))
+      @article.aws_url = @audio.track.url
+      @article.save
+      render 'audios/show'
     else
       flash[:notice]="Invalid URL."
       redirect_to current_user

@@ -1,2 +1,5 @@
-  <audio src=<%=@audio.aws_url%> controls>
+<%if @article.aws_url%>
+  <audio src=<%=@article.aws_url%> controls>
   </audio>
+<%end%>
+
