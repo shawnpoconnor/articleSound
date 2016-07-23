@@ -3,4 +3,15 @@
   <%end%>
 
 welcome <%=@user.username%>
-<%=link_to "edit", edit_user_path%>
+<%=link_to "edit", edit_user_path(@user)%>
+<%=form_for @article do |f|%>
+  <%=f.label :url%>
+  <%=f.text_field :url %>
+  <%=f.submit "Read"%>
+<%end%>
+
+<%if @article.aws_url%>
+  <audio src=<%=@article.aws_url%> controls>
+  </audio>
+<%end%>
+
