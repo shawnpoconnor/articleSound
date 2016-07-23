@@ -23,9 +23,13 @@ class Scraper
   def initialize(url)
     @url = url
     self.url_check
-    self.scrape_text
-    self.white_space_cleaner
-    self.text_length
+    if CONTENT_TAG.has_key?(@domain)
+      self.scrape_text
+      self.white_space_cleaner
+      self.text_length
+    else
+      @text = "ERROR"
+    end
   end
 
   def url_check

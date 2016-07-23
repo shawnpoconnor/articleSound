@@ -13,14 +13,14 @@ class ArticlesController < ApplicationController
     @article.text = scraper.text
     @article.domain = scraper.domain
 
-    if @article.save
+    if @article.save && scraper.text != "ERROR"
       @article.call_watson
       @audio = Audio.create!(track: File.open("#{Rails.root}/app/assets/audio/article#{@article.id}.ogg"))
-      @article.aws_url = self.track.url
+      @article.aws_url = @audio.track.url
       @article.save
       render 'articles/show'
     else
-      flash[:notice]="Invalid URL."
+      flash[:notice]="Invalid URL or unsupported website."
       redirect_to current_user
     end
   end
