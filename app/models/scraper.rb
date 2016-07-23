@@ -3,7 +3,7 @@ require 'nokogiri'
 require 'pry'
 class Scraper
 
-  CONTENT_TAG = { 
+  CONTENT_TAG = {
     "medium.com": ".postArticle-content",
     "espn.go.com": ".article",
     "www.npr.org": ".story",
@@ -15,7 +15,6 @@ class Scraper
     "nypost.com": ".entry-content"
     "www.bbc.com": ".story-body__inner"
   }
-
 
   attr_reader :url, :domain, :text
 
