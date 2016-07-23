@@ -4,16 +4,18 @@ require 'pry'
 class Scraper
 
   CONTENT_TAG = {
-    "medium.com": ".postArticle-content",
-    "espn.go.com": ".article",
-    "www.npr.org": ".story",
-    "www.cnn.com": "#body-text",
+    "medium.com":           ".postArticle-content",
+    "espn.go.com":          ".article",
+    "www.npr.org":          ".story",
+    "www.cnn.com":          "#body-text",
     "news.fastcompany.com": ".first-item",
-    "www.fastcompany.com": "article",
-    "www.wired.com": "article",
-    "www.theatlantic.com": "#article-section-1",
-    "nypost.com": ".entry-content",
-    "www.bbc.com": ".story-body__inner"
+    "www.fastcompany.com":  "article",
+    "www.wired.com":        "article",
+    "www.theatlantic.com":  "#article-section-1",
+    "nypost.com":           ".entry-content",
+    "www.bbc.com":          ".story-body__inner",
+    "kotaku.com":           ".post-content",
+    "pitchfork.com":        ".contents"
   }
 
   attr_reader :url, :domain, :text
@@ -41,6 +43,7 @@ class Scraper
   def scrape_text
     tag   = CONTENT_TAG[domain.to_sym]
     doc   = Nokogiri::HTML(open(url))
+    binding.pry
     @text = doc.css(tag).text
   end
 
