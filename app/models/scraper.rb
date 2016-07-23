@@ -2,12 +2,20 @@ require 'open-uri'
 require 'nokogiri'
 require 'pry'
 class Scraper
-  CONTENT_TAG = { "medium.com":  ".postArticle-content",
-                  "espn.go.com": ".article",
-                  "www.npr.org": ".story",
-                  "www.cnn.com": "#body-text"
-                  "www.bbc.com": ".story-body__inner"
-                }
+
+  CONTENT_TAG = { 
+    "medium.com": ".postArticle-content",
+    "espn.go.com": ".article",
+    "www.npr.org": ".story",
+    "www.cnn.com": "#body-text",
+    "news.fastcompany.com": ".first-item",
+    "www.fastcompany.com": "article",
+    "www.wired.com": "article",
+    "www.theatlantic.com": "#article-section-1",
+    "nypost.com": ".entry-content"
+    "www.bbc.com": ".story-body__inner"
+  }
+
 
   attr_reader :url, :domain, :text
 
