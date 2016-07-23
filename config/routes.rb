@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'article/new'
+  get 'article/show'
   root "application#index"
   get '/register', to: "users#new"
   get '/login', to: "sessions#new"

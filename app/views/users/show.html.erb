@@ -4,3 +4,9 @@
 
 welcome <%=@user.username%>
 <%=link_to "edit", edit_user_path%>
+<%=form_for @article do |f|%>
+  <%=f.label :url%>
+  <%=f.text_field :url %>
+  <%=f.submit "Read"%>
+<%end%>
+

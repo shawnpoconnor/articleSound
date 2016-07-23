@@ -12,7 +12,7 @@ class Scraper
     "www.fastcompany.com": "article",
     "www.wired.com": "article",
     "www.theatlantic.com": "#article-section-1",
-    "nypost.com": ".entry-content"
+    "nypost.com": ".entry-content",
     "www.bbc.com": ".story-body__inner"
   }
 
