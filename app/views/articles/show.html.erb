@@ -1,6 +1,6 @@
 <h1>Article#show</h1>
-<%if @article.aws_url%>
-  <audio src=<%=@article.aws_url%> controls>
+<%if @audio.track.url%>
+  <audio src=<%=@audio.track.url%> controls>
   </audio>
 <%end%>
 
