@@ -38,6 +38,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @article = Article.new
+    @articles = @user.articles.order("created_at DESC")
   end
 
   def destroy
