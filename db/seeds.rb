@@ -14,5 +14,5 @@ urls.each do |url|
   text = scraper.text.gsub("\"","")
   article = user.articles.create(text: text, url:url, domain:scraper.domain)
   article.call_watson
-  Audio.create!(track: File.open("#{Rails.root}/app/assets/audio/article#{article.id}.ogg"))
+  Audio.create!(article: article, track: File.open("#{Rails.root}/app/assets/audio/article#{article.id}.ogg"))
 end
