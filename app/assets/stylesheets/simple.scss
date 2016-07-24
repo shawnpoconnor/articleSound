@@ -1,0 +1,42 @@
+
+@import "materialize/components/color";
+$primary-color-dark:   #455A64;
+$primary-color:        #607D8B;
+$primary-color-light:  #CFD8DC;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #FF5722;
+$primary-text-color:   #212121;
+$secondary-text-color: #727272;
+$divider-color:        #B6B6B6;
+
+@import 'materialize';
+
+@import 'https://fonts.googleapis.com/css?family=Lora:400,700';
+@import 'https://fonts.googleapis.com/css?family=Lato:300';
+
+
+body{
+  background-color: $primary-color-light;
+  font-family: 'Lato', sans-serif;
+}
+
+h1{
+  font-size: 3.2rem;
+  color: #455A64;
+  font-family: 'Lora', sans-serif;
+}
+
+#error_explanation ul{
+  border: 2px solid #e57373;
+  color: #e57373;
+  padding: 20px 40px;
+}
+
+.btn{
+  background-color: $accent-color;
+  text-transform: none;
+}
+
+.btn:hover{
+  background-color: #E64A19;
+}
