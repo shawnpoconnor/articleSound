@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'article/new'
+  get 'article/show'
   root "application#index"
   get '/register', to: "users#new"
   get '/login', to: "sessions#new"
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
   patch '/password', to:"users#update_password"
 
   resources :users, except: [:new, :index] 
-  resources :articles, only: [:new, :create]
+  resources :articles, only: [:new, :create, :show]
   resources :audios
 
 end

@@ -1,3 +1,8 @@
-  <audio src=<%=@audio%> controls>
-    <p>Your browser does not support the <code>audio</code> element.</p>
-  </audio>
+
+<div class="row">
+  <%if @article.aws_url%>
+    <div class="col s12">
+      <audio src=<%=@article.aws_url%> controls></audio>
+    </div>
+  <%end%>
+</div>

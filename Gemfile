@@ -8,7 +8,9 @@ gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
-# gem 'sass-rails', '~> 5.0'
+gem 'sass'
+gem 'sass-rails', '~> 5.0'
+gem 'materialize-sass'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -24,6 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem "binding_of_caller"
 
 # gem 'figaro'
 gem 'dotenv-rails', :groups => [:development, :test]
@@ -31,6 +34,8 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 gem "paperclip"
 gem 'aws-sdk'
+
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

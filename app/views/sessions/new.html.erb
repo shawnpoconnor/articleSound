@@ -5,15 +5,19 @@
   <%end%>
 
   <%= form_for(:session, url:login_path) do |f| %>
-    <div>
-      <%=f.label :email, "Email:"%>
-      <%=f.email_field :email%>
-   </div>
-   <div>
-      <%=f.label :password, "Password:"%>
-     <%=f.password_field :password%>
-   </div>
-   <%=f.submit "log in"%>
+  <div class="row">
+    <div class='input-field'>
+        <%=f.label :email, "Email:"%>
+        <%=f.email_field :email%>
+    </div>
+  </div>
+  <div class="row">
+    <div class='input-field'>
+        <%=f.label :password, "Password:"%>
+       <%=f.password_field :password%>
+    </div>
+   </div> 
+    <%=f.submit "log in", class: "waves-effect waves-light btn"%>
   <%end%>
 
 <p><%=link_to "Don't have an account? Sign up!", register_path%></p>

@@ -3,20 +3,30 @@
   <head>
     <title>ArticleSound</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+    <ul id="dropdown1" class="dropdown-content">
+            <li><%=link_to "logout", logout_path, method:"delete"%></li>
+    <li class="divider"></li>
+  </ul>
     <nav>
-    <% if logged_in? %>
-      <%=link_to "logout", logout_path, method:"delete"%>
-    <% else %>
-      <%=link_to "register", register_path%>
-      <%=link_to "login", login_path%>
-    <% end %>
+      <div class="nav-wrapper">
+      <ul id="nav-mobile" class="right">
+      <% if logged_in? %>
+        <li><%=link_to "logout", logout_path, method:"delete"%></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%=current_user.username%><i class="material-icons right"></i></a></li>
+      <% else %>
+        <li><%=link_to "register", register_path%></li>
+        <li><%=link_to "login", login_path%></li>
+      <% end %>
+      </div>
     </nav>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

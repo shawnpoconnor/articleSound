@@ -1,27 +1,32 @@
-<%= form_for(@user) do |f| %>
+<div>
 
-  <div>
-    <%= f.label :username, "username: "%>
-    <%= f.text_field :username %>
-  </div>
+  <%= form_for(@user) do |f| %>
 
-  <div>
-    <%= f.label :email, "email: "%>
-    <%= f.email_field :email %>
-   </div>
+    <%= render 'shared/error_messages', object: f.object %>
 
-  <% if !@current_user%>
-    <div>
-      <%= f.label :password, "password: " %>
-      <%= f.password_field :password %>
+    <div class='input-field'>
+      <%= f.label :username, "username: "%>
+      <%= f.text_field :username %>
     </div>
 
-    <div>
-      <%= f.label :password_confirmation, "re-enter password:" %>
-      <%= f.password_field :password_confirmation %>
-    </div>
-  <%end%>
+    <div class='input-field'>
+      <%= f.label :email, "email: "%>
+      <%= f.email_field :email %>
+     </div>
 
-  <%= f.submit yield(:button_text) %>
-  
-<% end %>
+    <% if !@current_user%>
+      <div class='input-field'>
+        <%= f.label :password, "password: " %>
+        <%= f.password_field :password %>
+      </div>
+
+      <div class='input-field'>
+        <%= f.label :password_confirmation, "re-enter password:" %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+    <%end%>
+
+    <%= f.submit yield(:button_text), class: "btn center-align waves-effect waves-light" %>
+
+  <% end %>
+</div>
