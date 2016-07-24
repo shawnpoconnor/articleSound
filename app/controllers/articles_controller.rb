@@ -4,16 +4,19 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.find_or_initialize_by(article_params)
-    
+
     if @article.valid?
-      redirect_to current_user 
+      @audio = Audio.find_by(article_id: @article.id)
+      redirect_to article_path(@article.id)
+      UserArticle.find_or_initialize_by(user:current_user, article:@article)
       return
+    else
+      scraper = Scraper.new(@article.url)
+      @article.text = scraper.text
+      @article.domain = scraper.domain
+      @article.title = scraper.title
     end
 
-    scraper = Scraper.new(@article.url)
-    @article.text = scraper.text
-    @article.domain = scraper.domain
-    @article.title = scraper.title
     if @article.save
       @article.call_watson
       @audio = Audio.create!(article: @article, track: File.open("#{Rails.root}/app/assets/audio/article#{@article.id}.ogg"))
