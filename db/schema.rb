@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160724182634) do
+ActiveRecord::Schema.define(version: 20160724191704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20160724182634) do
     t.string   "track_content_type"
     t.integer  "track_file_size"
     t.datetime "track_updated_at"
+    t.integer  "article_id"
+    t.index ["article_id"], name: "index_audios_on_article_id", using: :btree
   end
 
   create_table "user_articles", force: :cascade do |t|

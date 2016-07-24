@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
 
     if @article.save
       @article.call_watson
-      @audio = Audio.create!(track: File.open("#{Rails.root}/app/assets/audio/article#{@article.id}.ogg"))
+      @audio = Audio.create!(article: @article, track: File.open("#{Rails.root}/app/assets/audio/article#{@article.id}.ogg"))
       @article.aws_url = @audio.track.url
       @article.save
       render 'articles/show'
