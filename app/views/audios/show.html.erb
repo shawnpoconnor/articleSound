@@ -1,5 +1,8 @@
-<%if @article.aws_url%>
-  <audio src=<%=@article.aws_url%> controls>
-  </audio>
-<%end%>
 
+<div class="row">
+  <%if @article.aws_url%>
+    <div class="col s12">
+      <audio src=<%=@article.aws_url%> controls></audio>
+    </div>
+  <%end%>
+</div>
