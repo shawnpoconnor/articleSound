@@ -9,16 +9,15 @@
   </head>
 
   <body>
-    <ul id="dropdown1" class="dropdown-content">
-            <li><%=link_to "logout", logout_path, method:"delete"%></li>
-    <li class="divider"></li>
-  </ul>
     <nav>
       <div class="nav-wrapper">
       <ul id="nav-mobile" class="right">
       <% if logged_in? %>
-        <li><%=link_to "logout", logout_path, method:"delete"%></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%=current_user.username%><i class="material-icons right"></i></a></li>
+        <ul id="dropdown1" class="dropdown-content">
+          <li><%=link_to "edit account", edit_user_path(current_user)%></li>
+          <li><%=link_to "logout", logout_path, method:"delete"%></li>
+        </ul>
+        <li><a class="dropdown-button" href=<%=user_path(current_user)%> data-activates="dropdown1" data-hover="true" data-beloworigin="true"><%=current_user.username%></a></li>
       <% else %>
         <li><%=link_to "register", register_path%></li>
         <li><%=link_to "login", login_path%></li>

@@ -12,7 +12,7 @@ urls=["http://www.cnn.com/2016/07/24/politics/obama-trump-nato-isis/index.html",
 urls.each do |url|
   scraper = Scraper.new(url)
   text = scraper.text.gsub("\"","")
-  article = user.articles.create(text: text, url:url, domain:scraper.domain)
+  article = user.articles.create(text: text, url:url, domain:scraper.domain, title:scraper.title)
   article.call_watson
   Audio.create!(article: article, track: File.open("#{Rails.root}/app/assets/audio/article#{article.id}.ogg"))
 end
