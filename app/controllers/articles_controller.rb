@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
     scraper = Scraper.new(@article.url)
     @article.text = scraper.text
     @article.domain = scraper.domain
+    @article.title = scraper.title
 
     if @article.save
       @article.call_watson
