@@ -30,6 +30,7 @@ Thumbs.db
 *.exe
 *.o
 *.so
+*.ogg
 
 # Ignore application configuration
 /config/application.yml
