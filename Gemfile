@@ -35,7 +35,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 gem "paperclip"
 gem 'aws-sdk'
 
-
+gem 'httparty'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
