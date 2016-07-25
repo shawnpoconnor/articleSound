@@ -2,25 +2,32 @@
     <div class="notice"><%=flash[:notice]%></div>
   <%end%>
 
-<div>
+<div class="url-form">
   <%=form_for @article do |f|%>
-    <div class='input-field'>
-      <%=f.label :url, "Article URL"%>
-      <%=f.text_field :url %>
+  <div class="row">
+    <div class='input-field col s10 offset-5'>
+      <span class="flow-text">
+        <%=f.label :url, "Article URL"%>
+        <%=f.text_field :url %>
+      </span>
     </div>
-    <%=f.submit "Read", class:"btn"%>
+    <%=f.submit "Read", class:"btn waves-effect col s2 offset-1"%>
   <%end%>
-</div>
-
-  <div>
-    <audio id="player" src="#" controls autoplay="true"></audio>
   </div>
 
+  <div class="center-align audio-player">
+    <audio id="player" src="#" controls="controls" autoplay="true"></audio>
+  </div>
+</div>
+
+
+<div id="your-articles">
   <h3>your articles</h3>
   <%@articles.each do |article|%>
     <div class="article">
-      <h4><%=article.title%></h4>
-      <div class="link"><a class="play" data-url=<%=article.audio.track.url%>>play</a></div>
-      <div class="link">remove</div>
+      <h5><%=article.title%></h5>
+      <div class="link btn"><a class="play" data-url=<%=article.audio.track.url%> data-title=<%=article.title%>>play</a></div>
+      <div class="link btn"> <%=link_to "remove", user_article_path(article), method: :delete%></div>
     </div>
   <%end%>
+</div>

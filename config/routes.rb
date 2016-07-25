@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   resources :users, except: [:new, :index] 
   resources :articles, only: [:new, :create, :show]
   resources :audios
+  resources :user_articles, only: [:destroy]
 
 end

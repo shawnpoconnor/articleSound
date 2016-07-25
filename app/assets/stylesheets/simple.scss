@@ -1,14 +1,16 @@
 
 @import "materialize/components/color";
 
-$primary-color-dark:   #212121;
-$primary-color:        #262626;
-$primary-color-light:  #616161;
+
+$primary-color-dark:   #E64A19;
+$primary-color:         #ED7B54;
+$primary-color-light:  #B2E8F2;
 $primary-color-text:   #FFFFFF;
-$accent-color:         #448AFF;
+$accent-color:          #277FD8;
 $primary-text-color:   #212121;
 $secondary-text-color: #727272;
 $divider-color:        #B6B6B6;
+
 
 @import 'materialize';
 @import 'https://fonts.googleapis.com/css?family=Lora:400,700';
@@ -17,6 +19,11 @@ $divider-color:        #B6B6B6;
 
 body{
   font-family: 'Lato', sans-serif;
+}
+
+.container{
+  width:80%;
+  margin:auto;
 }
 
 h1{
@@ -31,22 +38,27 @@ h1{
 }
 
 .btn{
-  background-color: $primary-color;
+  background-color: transparent;
+  border: 2px solid $accent-color;
   text-transform: none;
-  margin-top:10px;
+  color: $accent-color;
 }
 
 .btn:hover{
   background-color: $primary-color-light;
 }
 
-
 .notice{
   padding: 20px 30px;
 }
 
+
 nav ul.left{
   height:100%;
+}
+
+dropdown-button{
+  margin: 10px;
 }
 
 nav img{
@@ -55,16 +67,14 @@ nav img{
   vertical-align: middle;
 }
 
-
-
 .article{
   padding:20px;
 }
 
-.link{
+.link btn{
   display:inline-block;
-  width: 5%;
 }
+
 
 #homepage{
   height: 100vh;
@@ -80,7 +90,8 @@ nav img{
 }
 
 #homepage img{
-  margin: 15%;
+  margin:auto;
+  margin-top:15%;
 }
 
 #color_transparency{
@@ -88,3 +99,27 @@ nav img{
   height:100%;
   width:100%
 }
+
+.url-form{
+  width:100%;
+  padding:50px;
+}
+
+#player{
+  height: 50px;
+  width:100%;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: $primary-color;
+  height: 50px;
+  width:80%;
+  padding: 10px;
+  margin:auto;
+}
+
+audio::-webkit-media-controls-timeline{
+  background-color: $primary-color-light;
+}
+
+
