@@ -64,7 +64,7 @@ class UsersController < ApplicationController
     elsif @user.errors.count > 0
       render 'password'
     else
-      @errors= "Wrong password. Please enter your current password."
+      @errors= "* Wrong password. Please enter your current password."
       render 'password'
     end
   end

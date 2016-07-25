@@ -1,7 +1,9 @@
 <div class="user_show">
+
   <h1>Login</h1>
+
   <%if flash[:notice]%>
-    <div class="notice"><%=flash[:notice]%></div>
+    <div class="notice error"><%=flash[:notice]%></div>
   <%end%>
 
   <%= form_for(:session, url:login_path) do |f| %>
@@ -13,12 +15,11 @@
   </div>
   <div class="row">
     <div class='input-field'>
-        <%=f.label :password, "Password:"%>
-       <%=f.password_field :password%>
+      <%=f.label :password, "Password:", class:"active"%>
+      <%=f.password_field :password%>
     </div>
    </div> 
     <%=f.submit "log in", class: "waves-effect waves-light btn"%>
   <%end%>
-
 <p><%=link_to "Don't have an account? Sign up!", register_path%></p>
 </div>
