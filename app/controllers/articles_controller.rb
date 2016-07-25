@@ -8,8 +8,8 @@ class ArticlesController < ApplicationController
 
     if @article.valid?
       @audio = Audio.find_by(article_id: @article.id)
-      UserArticle.find_or_initialize_by(user:current_user, article:@article)
-      redirect_to article_path(@article.id)
+      UserArticle.create(user:current_user, article:@article)
+      redirect_to current_user
       return
     else
       scraper = Scraper.new(@article.url)
@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find_by(id: params[:id])
     @audio = @article.audio
-    render 'articles/show'
+    redirect_to current_user
   end
 
 private
