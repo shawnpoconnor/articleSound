@@ -9,6 +9,7 @@
   </head>
 
   <body>
+
     <nav>
       <div class="nav-wrapper">
         <ul id="nav-mobile" class="right">
@@ -23,13 +24,16 @@
             <li><%=link_to "login", login_path%></li>
           <% end %>
         </ul>
+        
         <ul class="left">
           <%=image_tag("logo")%>
         </ul>
       </div>
     </nav>
+
     <div class="container">
       <%= yield %>
     </div>
+
   </body>
 </html>
