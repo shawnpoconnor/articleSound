@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?
 
+
   def login(user)
     session[:user_id] = user.id
   end
@@ -22,6 +23,8 @@ class ApplicationController < ActionController::Base
     session.delete(:user_id)
     @current_user = nil
   end
+
+
 
 end
 
