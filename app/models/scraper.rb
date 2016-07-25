@@ -6,7 +6,7 @@ class Scraper
   CONTENT_TAG = {
     "medium.com":           ".postArticle-content",
     "espn.go.com":          ".article",
-    "www.npr.org":          ".story",
+    "www.npr.org":          "#storytext",
     "www.cnn.com":          "#body-text",
     "news.fastcompany.com": ".first-item",
     "www.fastcompany.com":  "article",
@@ -18,11 +18,13 @@ class Scraper
     "pitchfork.com":        ".contents"
   }
 
-  attr_reader :url, :domain, :text, :title
+  attr_reader :url, :domain, :text, :title, :doc
 
   def initialize(url)
     @url = url
     self.url_check
+    self.nokogiri_doc
+    self.get_title
     self.scrape_text
     self.white_space_cleaner
     self.text_length
@@ -35,6 +37,14 @@ class Scraper
     end
   end
 
+  def nokogiri_doc
+    @doc   = Nokogiri::HTML(open(url))
+  end
+
+  def get_title
+    @title = doc.search('head').search('title').text
+  end
+
   def get_domain(url)
     uri    = URI.parse(url)
     domain = uri.host
@@ -42,15 +52,12 @@ class Scraper
 
   def scrape_text
     tag   = CONTENT_TAG[domain.to_sym]
-    doc   = Nokogiri::HTML(open(url))
-    @text = doc.css(tag).text
-    @title = doc.search('head').search('title').text
+    @doc = doc.css(tag)
+    @text = title + " " + doc.text
   end
 
   def white_space_cleaner
-    self.text.gsub!(/\s{2,}|\\n/, " ")
     self.text.gsub!(/\s+/, " ")
-    self.text.gsub!(/<a\s\S+">|<\/a>/, " ")
   end
 
   def text_length
@@ -59,3 +66,8 @@ class Scraper
     end
   end
 end
+
+kotaku = Scraper.new("http://kotaku.com/sick-of-pokemon-go-local-government-asks-game-to-remov-1784227881")
+cnn = Scraper.new("http://www.cnn.com/2016/07/25/politics/democratic-convention-dnc-emails-russia/index.html")
+binding.pry
+p a
