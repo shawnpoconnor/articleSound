@@ -6,7 +6,7 @@ class Scraper
   CONTENT_TAG = {
     "medium.com":           ".postArticle-content",
     "espn.go.com":          ".article",
-    "www.npr.org":          ".story",
+    "www.npr.org":          "#storytext p",
     "www.cnn.com":          "#body-text",
     "news.fastcompany.com": ".first-item",
     "www.fastcompany.com":  "article",
@@ -18,12 +18,20 @@ class Scraper
     "pitchfork.com":        ".contents"
   }
 
-  attr_reader :url, :domain, :text, :title
+  attr_accessor :url, :domain, :text, :title, :doc, :doc_body
 
   def initialize(url)
     @url = url
     self.url_check
+    self.nokogiri_doc
+    self.scrape_nokogiri_doc_tags
+    self.get_title
+    self.get_nokogiri_doc_body
+    self.remove_tags
     self.scrape_text
+    self.custom_text_scrape
+    # doc_body attr is now just text body container
+
     self.white_space_cleaner
     self.text_length
   end
@@ -35,22 +43,53 @@ class Scraper
     end
   end
 
+  def nokogiri_doc
+    @doc   = Nokogiri::HTML(open(url))
+  end
+
+  def scrape_nokogiri_doc_tags
+    if @domain == "www.npr.org"
+      doc.search(".credit-caption").each { |caption| caption.remove }
+      doc.search(".caption").each { |caption| caption.remove }
+    end
+  end
+
+  def get_title
+    @title = doc.search('head').search('title').text
+  end
+
+  def custom_text_scrape
+    if @domain == "www.cnn.com"
+      @text.gsub!(/Story highlights.+\(CNN\)/, " ")
+    end
+  end
+
   def get_domain(url)
     uri    = URI.parse(url)
     domain = uri.host
   end
 
-  def scrape_text
+  def get_nokogiri_doc_body
     tag   = CONTENT_TAG[domain.to_sym]
-    doc   = Nokogiri::HTML(open(url))
-    @text = doc.css(tag).text
-    @title = doc.search('head').search('title').text
+    @doc_body = doc.css(tag)
+  end
+
+  def remove_tags
+    doc_body.search("style").each { |style| style.remove }
+    doc_body.search("script").each { |script| script.remove }
+  end
+
+  def scrape_text
+    first_sentence = doc_body.text.match(/\.*./)
+    if first_sentence
+      @text = doc_body.text
+    else
+      @text = title + " " + doc_body.text
+    end
   end
 
   def white_space_cleaner
-    self.text.gsub!(/\s{2,}|\\n/, " ")
     self.text.gsub!(/\s+/, " ")
-    self.text.gsub!(/<a\s\S+">|<\/a>/, " ")
   end
 
   def text_length
@@ -59,3 +98,7 @@ class Scraper
     end
   end
 end
+
+medium = Scraper.new("https://medium.com/@stevemagness/no-one-really-wants-a-whistle-blower-russia-the-ioc-and-doping-6c0c2461bba7")
+npr = Scraper.new("http://www.npr.org/2016/07/25/487312745/5-things-to-watch-in-philadelphia-this-week")
+p a
