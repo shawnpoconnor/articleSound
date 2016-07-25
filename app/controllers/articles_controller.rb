@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
       @article.call_watson
       @audio = Audio.create!(article: @article, track: File.open("#{Rails.root}/app/assets/audio/article#{@article.id}.ogg"))
       UserArticle.create(user:current_user, article:@article)
-      render 'articles/show'
+      redirect_to current_user
     else
       flash[:notice]="Invalid URL."
       redirect_to current_user
