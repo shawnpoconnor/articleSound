@@ -11,16 +11,22 @@
     <%=f.submit "Read", class:"btn"%>
   <%end%>
 </div>
+<br>
 
   <div>
     <audio id="player" src="#" controls autoplay="true"></audio>
   </div>
+  <br>
 
   <h3>your articles</h3>
   <%@articles.each do |article|%>
     <div class="article">
       <h4><%=article.title%></h4>
-      <div class="link"><a class="play" data-url=<%=article.audio.track.url%>>play</a></div>
+      <div class='inactive text-scroll-container'>
+        <span><%= article.text %></span>
+      </div>
+      <div class="link"><a class="play" data-url=<%=article.audio.track.url%> >play</a></div>
       <div class="link">remove</div>
+      <div class='link show-text'><a id=<%= article.id %>>text</a></div>
     </div>
   <%end%>
