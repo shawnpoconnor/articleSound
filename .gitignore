@@ -33,5 +33,4 @@ Thumbs.db
 
 # Ignore application configuration
 /config/application.yml
-/config/secrets.yml
 .env
