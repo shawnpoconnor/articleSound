@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    
     @article = Article.find_or_initialize_by(article_params)
 
     if @article.valid?
