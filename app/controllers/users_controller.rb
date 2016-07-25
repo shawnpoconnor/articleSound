@@ -13,7 +13,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice]="Success."
       login(@user)
       redirect_to @user
     else
@@ -38,7 +37,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @article = Article.new
-    @articles = @user.articles.order("created_at DESC")
+    @articles = @user.articles.order("created_at DESC").limit(10)
   end
 
   def destroy
