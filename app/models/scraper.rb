@@ -101,5 +101,4 @@ end
 
 medium = Scraper.new("https://medium.com/@stevemagness/no-one-really-wants-a-whistle-blower-russia-the-ioc-and-doping-6c0c2461bba7")
 npr = Scraper.new("http://www.npr.org/2016/07/25/487312745/5-things-to-watch-in-philadelphia-this-week")
-binding.pry
 p a
