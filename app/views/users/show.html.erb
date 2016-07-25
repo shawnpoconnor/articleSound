@@ -16,10 +16,11 @@
     <audio id="player" src="#" controls autoplay="true"></audio>
   </div>
 
-
+  <h3>your articles</h3>
   <%@articles.each do |article|%>
-  <div class="article">
-    <h6><%=article.title%></h6>
-    <a class="play" data-url=<%=article.audio.track.url%>>play</a>
-  </div>
+    <div class="article">
+      <h4><%=article.title%></h4>
+      <div class="link"><a class="play" data-url=<%=article.audio.track.url%>>play</a></div>
+      <div class="link">remove</div>
+    </div>
   <%end%>
