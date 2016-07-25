@@ -7,8 +7,8 @@ class ArticlesController < ApplicationController
 
     if @article.valid?
       @audio = Audio.find_by(article_id: @article.id)
-      redirect_to article_path(@article.id)
       UserArticle.find_or_initialize_by(user:current_user, article:@article)
+      redirect_to article_path(@article.id)
       return
     else
       scraper = Scraper.new(@article.url)
