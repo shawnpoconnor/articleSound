@@ -3,4 +3,10 @@
 
 $(document).ready(function() {
     Materialize.updateTextFields();
+
+    $('.play').click(function(event){
+      var url = $(this).data("url");
+      $('#player').prop('src', url);
+    });
+
   });

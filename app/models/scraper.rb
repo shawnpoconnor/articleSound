@@ -18,7 +18,7 @@ class Scraper
     "pitchfork.com":        ".contents"
   }
 
-  attr_reader :url, :domain, :text
+  attr_reader :url, :domain, :text, :title
 
   def initialize(url)
     @url = url
@@ -44,6 +44,7 @@ class Scraper
     tag   = CONTENT_TAG[domain.to_sym]
     doc   = Nokogiri::HTML(open(url))
     @text = doc.css(tag).text
+    @title = doc.search('head').search('title').text
   end
 
   def white_space_cleaner

@@ -38,6 +38,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @article = Article.new
+    @articles = @user.articles.order("created_at DESC")
   end
 
   def destroy
@@ -63,7 +64,7 @@ class UsersController < ApplicationController
     elsif @user.errors.count > 0
       render 'password'
     else
-      @errors= "Wrong password. Please enter your current password."
+      @errors= "* Wrong password. Please enter your current password."
       render 'password'
     end
   end

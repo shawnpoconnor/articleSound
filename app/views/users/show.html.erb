@@ -2,10 +2,6 @@
     <div class="notice"><%=flash[:notice]%></div>
   <%end%>
 
-welcome <%=@user.username%>
-
-<%=link_to "edit", edit_user_path(@user) %>
-
 <div>
   <%=form_for @article do |f|%>
     <div class='input-field'>
@@ -16,8 +12,14 @@ welcome <%=@user.username%>
   <%end%>
 </div>
 
-<%if @article.aws_url%>
-  <audio src=<%=@article.aws_url%> controls>
-  </audio>
-<%end%>
+  <div>
+    <audio id="player" src="#" controls autoplay="true"></audio>
+  </div>
 
+
+  <%@articles.each do |article|%>
+  <div class="article">
+    <h6><%=article.title%></h6>
+    <a class="play" data-url=<%=article.audio.track.url%>>play</a>
+  </div>
+  <%end%>
