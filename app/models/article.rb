@@ -15,4 +15,11 @@ class Article < ApplicationRecord
     File.delete("tmp/article#{self.id}.ogg")
   end
 
+  def readers
+    return self.user_articles.count
+  end
+
+  def self.top_five
+    Article.all.sort{ |x, y| y.readers <=> x.readers }[0..4]
+  end
 end

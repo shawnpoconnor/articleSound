@@ -1,6 +1,6 @@
-  <%if flash[:notice]%>
-    <div class="notice"><%=flash[:notice]%></div>
-  <%end%>
+<%if flash[:notice]%>
+  <div class="notice"><%=flash[:notice]%></div>
+<%end%>
 
 <div class="url-form" id="url-form">
   <div id="url-error" style></div>
@@ -12,7 +12,7 @@
         <%=f.text_field :url %>
       </span>
     </div>
-    <%=f.submit "Read", class:"btn waves-effect waves-orange offset-1 read-button"%>
+    <%=f.submit "Read", class:"btn offset-1", id:"read-button"%>
   </div>
   <%end%>
 </div>

@@ -2,7 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$primary-color-light:  #3885D5;
+
+$primary-color-dark:   #455A64;
+$primary-color:        #607D8B;
+$primary-color-light:  #CFD8DC;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #ff8f00;
+$primary-text-color:   #212121;
+$secondary-text-color: #727272;
+$divider-color:        #B6B6B6;
+
 
 .inactive {
   display:none;
@@ -21,9 +30,18 @@ $primary-color-light:  #3885D5;
 }
 
 .url-form{
-  width:100%;
-  margin: 20px auto;
-  position: relative;
+  width:70%;
+  margin: 100px auto 40px;
+}
+
+.btn{
+  background-color: $accent-color;
+  color:white;
+}
+
+.btn:hover{
+  background-color: white;
+  color: $primary-color;
 }
 
 #player{
@@ -34,8 +52,8 @@ $primary-color-light:  #3885D5;
 }
 
 audio::-webkit-media-controls-panel {
-  background-color: $primary-color-light;
-  height: 50px;
+  background-color: $primary-color;
+  height: 70px;
   width:80%;
   padding: 10px;
   margin:auto;
@@ -45,10 +63,6 @@ audio::-webkit-media-controls-timeline{
   background-color: $primary-color-light;
 }
 
-h5{
-  font-weight:bold;
-  display: inline-block;
-}
 
 #your-articles{
   padding:50px;
@@ -57,8 +71,18 @@ h5{
 
 .article .btn-floating{
   margin:5px;
+  background-color: $primary-color;
 }
 
 #url-error {
   color: red;
+}
+
+.btn-floating:hover{
+  background-color: $accent-color;
+}
+
+.article{
+  margin-bottom:40px;
+  border-bottom:1px solid $primary-color;
 }
