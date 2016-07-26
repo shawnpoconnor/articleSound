@@ -24,26 +24,50 @@
 
 <div id="your-articles">
   <h4 class="center-align">Recently Added</h4>
-  <%@articles.each do |article|%>
+  <h3> history</h3>
+  <%@history.each do |user_article|%>
     <div class="article">
     
-      
       <div class="link btn-floating center-align play-pause">
-        <a class="play" data-url=<%=article.audio.track.url%> ><i class="material-icons">play_arrow</i></a>
+        <a class="play" data-url=<%=user_article.article.audio.track.url%> ><i class="material-icons">play_arrow</i></a>
       </div>
       <div class="link btn-floating center-align inactive">
-        <a class="pause" data-url=<%=article.audio.track.url%>><i class="material-icons">pause</i></a>
+        <a class="pause" data-url=<%=user_article.article.audio.track.url%>><i class="material-icons">pause</i></a>
       </div>
-      <h4><%=article.title%></h4>
+      <h4><%=user_article.article.title%></h4>
       <div class="link btn wave-effect">
-        <%=link_to "remove", user_article_path(article), method: :delete%>
+        <%=link_to "remove", user_article_path(user_article), method: :delete%>
       </div>
       <div class='link btn show-text'>
-        <a id=<%= article.id %>>text</a>
+        <a id=<%= user_article.article.id %>>text</a>
       </div>
 
       <div class='inactive text-scroll-container'>
-        <span><%= article.text %></span>
+        <span><%= user_article.article.text %></span>
+      </div>
+
+    </div>
+  <%end%>
+  <h3> queue</h3>
+  <%@queue.each do |user_article|%>
+    <div class="article">
+      
+      <div class="link btn-floating center-align play-pause">
+        <a class="play" data-url=<%=user_article.article.audio.track.url%> ><i class="material-icons">play_arrow</i></a>
+      </div>
+      <div class="link btn-floating center-align inactive">
+        <a class="pause" data-url=<%=user_article.article.audio.track.url%>><i class="material-icons">pause</i></a>
+      </div>
+      <h4><%=user_article.article.title%></h4>
+      <div class="link btn wave-effect">
+        <%=link_to "remove", user_article_path(user_article), method: :delete%>
+      </div>
+      <div class='link btn show-text'>
+        <a id=<%= user_article.article.id %>>text</a>
+      </div>
+
+      <div class='inactive text-scroll-container'>
+        <span><%= user_article.article.text %></span>
       </div>
 
     </div>
