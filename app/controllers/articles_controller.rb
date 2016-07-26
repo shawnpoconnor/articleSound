@@ -12,9 +12,11 @@ class ArticlesController < ApplicationController
       return
     else
       scraper = Scraper.new(@article.url)
-      @article.text = scraper.text
-      @article.domain = scraper.domain
-      @article.title = scraper.title
+      if scraper.valid_url?
+        @article.text = scraper.text
+        @article.domain = scraper.domain
+        @article.title = scraper.title
+      end
     end
 
     if @article.save
@@ -33,9 +35,11 @@ class ArticlesController < ApplicationController
       end
     else
       if request.xhr?
-        "Invalid URL"
+        # binding.pry
+        # render partial: "/shared/error_messages", object: @article
+        render :json => { :error => scraper.text }.to_json, status: 422
       else
-        flash[:notice]="Invalid URL."
+        flash[:notice]=scraper.text
         redirect_to current_user
       end
     end

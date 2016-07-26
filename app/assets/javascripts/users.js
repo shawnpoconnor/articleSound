@@ -72,7 +72,7 @@ $(document).ready(function() {
   , position: 'absolute' // Element positioning
   };
 
-  $('form').submit(function(e){
+  $('#url-form').submit(function(e){
     e.preventDefault();
 
     var target = $(e.target);
@@ -93,7 +93,15 @@ $(document).ready(function() {
       button2.firstChild.style.visibility="visible"
       $('#queue').html(response);
       button.prop('disabled', false);
-      document.getElementById("article_url").value = ""
+      document.getElementById("article_url").value = "";
     });
+    request.fail(function(response){
+      spinner.stop();
+      button2.firstChild.style.visibility="visible"
+      button.prop('disabled', false);
+      var errorMessage = JSON.parse(response.responseText).error;
+      $('#url-error').html(errorMessage);
+      document.getElementById("article_url").value = "";
+    })
   });
 });

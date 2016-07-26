@@ -20,6 +20,24 @@ class Scraper
   def initialize(url)
     @url = url
     self.url_check
+    if !self.valid_url?
+      if !url.match(/https?:\/\/[\S]+/)
+        @text = "Invalid URL"
+      else
+        @text = "That site domain is not supported at this moment. We apologize for the inconvenience."
+      end
+    end
+  end
+
+  def valid_url?
+    if !@domain || !CONTENT_TAG.has_key?(@domain)
+      false
+    else
+      true
+    end
+  end
+
+  def scrape
     self.nokogiri_doc
     self.scrape_nokogiri_doc_tags
     self.get_title
