@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?
 
+  def index
+    @articles = Article.top_five
+    @user_article = UserArticle.new
+  end
 
   def login(user)
     session[:user_id] = user.id

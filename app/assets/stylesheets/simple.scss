@@ -1,24 +1,23 @@
-
 @import "materialize/components/color";
 
 
-$primary-color-dark:   #E64A19;
-$primary-color:        #ef6c00;
-$primary-color-light:  #3885D5;
+$primary-color-dark:   #455A64;
+$primary-color:        #607D8B;
+$primary-color-light:  #CFD8DC;
 $primary-color-text:   #FFFFFF;
-$accent-color:          #277FD8;
+$accent-color:         #607D8B;
 $primary-text-color:   #212121;
-$secondary-text-color: #3885D5;
+$secondary-text-color: #727272;
 $divider-color:        #B6B6B6;
 
 
 @import 'materialize';
 @import 'https://fonts.googleapis.com/css?family=Lora:400,700';
-@import 'https://fonts.googleapis.com/css?family=Lato:300';
+@import 'https://fonts.googleapis.com/css?family=Crimson+Text';
 
 
 body{
-  font-family: 'Lato', sans-serif;
+  font-family: 'Crimson Text', serif;
 }
 
 .container{
@@ -92,7 +91,7 @@ nav img{
 }
 
 #color_transparency{
-  background: rgba( 0, 51, 102, 0.3);
+  background: rgba( 0, 51, 102, 0.1);
   height:100%;
   width:100%;
   position: fixed;
@@ -101,10 +100,32 @@ nav img{
 
 #homepage .btn{
   border: 2px solid white;
-  margin-right: 9%;
-  position: realitive;
-  margin-left: 8%;
-  width: 10%;
-
+  position: relative;
 }
 
+#trending{
+  color:white;
+  width: 50%;
+  height:100vh;
+  margin:0 auto 0;
+  padding: 50px 50px;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+table{
+  margin: 15px auto;
+  border-radius:20px;
+}
+
+td{
+  padding:0px 10px;
+  font-size:18px;
+}
+
+form .btn-floating{
+  float:right;  
+}
+
+#trending .btn{
+  margin-top: 30px;
+  }

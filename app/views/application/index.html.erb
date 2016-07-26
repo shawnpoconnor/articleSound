@@ -1,12 +1,35 @@
 <style>nav {display:none;}</style>
+
 <div id="homepage" class="center-align">
-  <div id="color_transparency">
-  </div>
-  <%=image_tag ('logo')%>
+  <div id="color_transparency"></div>
+
   <%if !logged_in?%>
+    <%=image_tag ('logo')%>
     <div id="links">
       <div class="btn"><%=link_to "register", register_path, class:"white-text"%></div>
       <div class="btn"><%=link_to "login", login_path, class:"white-text"%></div>
     </div>
+  <%else%>
+  <style> {display:none;}</style>
+  <div id="trending" class="center-align">
+    <h2>Trending<i class="material-icons small">trending_up</i></h2>
+    <%if flash[:notice]%>
+      <div class="notice"><%=flash[:notice]%></div>
+    <%end%>
+      <%@articles.each do |article|%>
+        <table class="bordered">
+        <tr>
+          <td><p><%=article.title%></p></td>
+          <td>
+            <%=form_for @user_article do |f| %>
+              <%=f.hidden_field :article_id, value: article.id %>
+              <%=f.submit "+", class:"btn-floating center-align"%>
+            <% end %>
+          </td>
+        </tr>
+        </table>
+      <%end%>
+      <%=link_to "profile", current_user, class:"btn"%>
+  </div>
   <%end%>
 </div>
