@@ -26,15 +26,16 @@
   <h4 class="center-align">Recently Added</h4>
   <%@articles.each do |article|%>
     <div class="article">
-      <h4><%=article.title%></h4>
+    
       
-      <div class="link btn play-pause">
+      <div class="link btn-floating center-align play-pause">
         <a class="play" data-url=<%=article.audio.track.url%> ><i class="material-icons">play_arrow</i></a>
       </div>
-      <div class="link btn inactive">
-        <a class="pause" data-url=<%=article.audio.track.url%>><i class="material-icons">pause_circle_filled</i></a>
+      <div class="link btn-floating center-align inactive">
+        <a class="pause" data-url=<%=article.audio.track.url%>><i class="material-icons">pause</i></a>
       </div>
-      <div class="link btn">
+      <h4><%=article.title%></h4>
+      <div class="link btn wave-effect">
         <%=link_to "remove", user_article_path(article), method: :delete%>
       </div>
       <div class='link btn show-text'>
