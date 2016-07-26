@@ -13,9 +13,6 @@
   <style> {display:none;}</style>
   <div id="trending" class="center-align">
     <h2>Trending<i class="material-icons small">trending_up</i></h2>
-    <%if flash[:notice]%>
-      <div class="notice"><%=flash[:notice]%></div>
-    <%end%>
       <%@articles.each do |article|%>
         <table class="bordered">
         <tr>
@@ -29,7 +26,7 @@
         </tr>
         </table>
       <%end%>
-      <%=link_to "profile", current_user, class:"btn"%>
+      <%=link_to "profile", current_user, class:"profile btn"%>
   </div>
   <%end%>
 </div>

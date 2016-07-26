@@ -1,6 +1,5 @@
 @import "materialize/components/color";
 
-
 $primary-color-dark:   #455A64;
 $primary-color:        #607D8B;
 $primary-color-light:  #CFD8DC;
@@ -9,7 +8,6 @@ $accent-color:         #607D8B;
 $primary-text-color:   #212121;
 $secondary-text-color: #727272;
 $divider-color:        #B6B6B6;
-
 
 @import 'materialize';
 @import 'https://fonts.googleapis.com/css?family=Lora:400,700';
@@ -43,28 +41,32 @@ h1{
   color: $accent-color;
 }
 
+nav{
+  height:80px;
+}
+
 nav li{
   width:100px;
-  margin-right:10px;
+  margin-right:30px;
+}
+
+.dropdown-button{
+  font-size: 1.5rem;
+  padding:10px;
+}
+
+nav img{
+  height: 60px;
+  vertical-align:middle;
+  margin:10px 10px;
 }
 
 .notice{
   padding: 20px 30px;
 }
 
-
-nav ul.left{
-  height:100%;
-}
-
 dropdown-button{
   margin: 10px;
-}
-
-nav img{
-  height: 60px;
-  padding: 5px 10px;
-  vertical-align: middle;
 }
 
 .article{
@@ -122,10 +124,13 @@ td{
   font-size:18px;
 }
 
-form .btn-floating{
+ .btn-floating{
   float:right;  
+  background-color: rgba(0, 0, 250, 0.1);
+  color:white;
+  line-height:0px;
 }
 
-#trending .btn{
-  margin-top: 30px;
+.profile{
+  margin-top: 50px;
   }
