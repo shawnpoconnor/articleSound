@@ -14,7 +14,7 @@ $primary-color-light:  #3885D5;
 
 .text-scroll-container {
   height:250px;
-  width:80%;
+  width:100%;
   border:1px solid #ccc;
   font:16px/26px Georgia, Garamond, Serif;
   overflow:auto;
@@ -44,11 +44,12 @@ audio::-webkit-media-controls-timeline{
   background-color: $primary-color-light;
 }
 
-h4{
+h5{
   font-weight:bold;
+  display: inline-block;
 }
 
 #your-articles{
-  margin: 40px auto;
-  padding: 20px;
+  padding:50px;
+  width:100%;
 }
