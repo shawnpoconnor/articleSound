@@ -37,7 +37,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @article = Article.new
-    @articles = @user.articles.order("created_at DESC").limit(10)
+    @history = @user.user_articles.where(listened: true).order("created_at DESC").limit(5)
+    @queue = @user.user_articles.where(listened: false).order("created_at DESC").limit(5)
   end
 
   def destroy
