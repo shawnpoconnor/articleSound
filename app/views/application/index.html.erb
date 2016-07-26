@@ -1,6 +1,12 @@
-
+<style>nav {display:none;}</style>
 <div id="homepage" class="center-align">
   <div id="color_transparency">
-    <%=image_tag ('logo')%>
   </div>
+  <%=image_tag ('logo')%>
+  <%if !logged_in?%>
+    <div id="links">
+      <div class="btn"><%=link_to "register", register_path, class:"white-text"%></div>
+      <div class="btn"><%=link_to "login", login_path, class:"white-text"%></div>
+    </div>
+  <%end%>
 </div>

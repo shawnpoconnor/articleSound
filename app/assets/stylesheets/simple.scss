@@ -98,7 +98,9 @@ nav img{
 #color_transparency{
   background: rgba( 0, 51, 102, 0.3);
   height:100%;
-  width:100%
+  width:100%;
+  position: fixed;
+  z-index:-1;
 }
 
 .url-form{
@@ -132,4 +134,8 @@ h4{
 #your-articles{
   margin: 40px auto;
   padding: 20px;
+}
+
+#homepage .btn{
+  border: 2px solid white;
 }
