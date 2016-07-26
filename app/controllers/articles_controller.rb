@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-
+    binding.pry
     @article = Article.find_or_initialize_by(article_params)
 
     if @article.valid?
@@ -23,10 +23,21 @@ class ArticlesController < ApplicationController
       @audio = Audio.create!(article: @article, track: File.open("#{Rails.root}/tmp/article#{@article.id}.ogg") )
       UserArticle.create(user:current_user, article:@article)
       @article.delete_file
-      redirect_to current_user
+      if request.xhr?
+        @queue = current_user.user_articles.where(listened: false).order("created_at DESC").limit(5)
+        status 200
+        erb :"/users/_queue", layout: false, locals: { queue: @queue }
+      else
+        redirect_to current_user
+      end
     else
-      flash[:notice]="Invalid URL."
-      redirect_to current_user
+      if request.xhr?
+        status 422
+        respond: "Invaliddddd URL"
+      else
+        flash[:notice]="Invalid URL."
+        redirect_to current_user
+      end
     end
   end
 
