@@ -1,0 +1,11 @@
+<% if @errors %>
+  <% @errors.each do |error| %>
+  <%= error %><br>
+  <% end %>
+<% end %>
+
+<%=form_for @audio, multipart: true do |f|%>
+  <%=f.label :track%>
+  <%=f.file_field :track, as: :file%>
+  <%=f.submit "upload"%>
+<%end%>
