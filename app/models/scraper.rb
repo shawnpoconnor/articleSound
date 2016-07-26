@@ -112,6 +112,6 @@ class Scraper
   # end
   # Shorter watson calls as delete_file works on heroku
   def text_length_development
-    @text = text[0,100]
+    @text = text[0,500]
   end
 end
