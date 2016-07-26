@@ -3,12 +3,12 @@
 
 
 $primary-color-dark:   #E64A19;
-$primary-color:         #ED7B54;
-$primary-color-light:  #B2E8F2;
+$primary-color:        #ef6c00;
+$primary-color-light:  #3885D5;
 $primary-color-text:   #FFFFFF;
 $accent-color:          #277FD8;
 $primary-text-color:   #212121;
-$secondary-text-color: #727272;
+$secondary-text-color: #3885D5;
 $divider-color:        #B6B6B6;
 
 
@@ -44,8 +44,9 @@ h1{
   color: $accent-color;
 }
 
-.btn:hover{
-  background-color: $primary-color-light;
+nav li{
+  width:100px;
+  margin-right:10px;
 }
 
 .notice{
@@ -102,16 +103,18 @@ nav img{
 
 .url-form{
   width:100%;
-  padding:50px;
+  margin: 20px auto;
 }
 
 #player{
-  height: 50px;
+  height:100%;
   width:100%;
+  margin-bottom:20px;
+  padding:20px;
 }
 
 audio::-webkit-media-controls-panel {
-  background-color: $primary-color;
+  background-color: $primary-color-light;
   height: 50px;
   width:80%;
   padding: 10px;
@@ -122,4 +125,11 @@ audio::-webkit-media-controls-timeline{
   background-color: $primary-color-light;
 }
 
+h4{
+  font-weight:bold;
+}
 
+#your-articles{
+  margin: 40px auto;
+  padding: 20px;
+}
