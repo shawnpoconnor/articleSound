@@ -27,12 +27,12 @@
   <%@articles.each do |article|%>
     <div class="article">
       <h4><%=article.title%></h4>
-
+      
       <div class="link btn play-pause">
-        <a class="play" data-url=<%=article.audio.track.url%> >play</a>
+        <a class="play" data-url=<%=article.audio.track.url%> ><i class="material-icons">play_arrow</i></a>
       </div>
       <div class="link btn inactive">
-        <a class="pause" data-url=<%=article.audio.track.url%>>pause</a>
+        <a class="pause" data-url=<%=article.audio.track.url%>><i class="material-icons">pause_circle_filled</i></a>
       </div>
       <div class="link btn">
         <%=link_to "remove", user_article_path(article), method: :delete%>
