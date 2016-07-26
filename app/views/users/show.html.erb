@@ -27,7 +27,10 @@
     <h5 class="center-align"> history</h5>
     <%@history.each do |user_article|%>
       <div class="article">
-
+        <h5><%=user_article.article.title%></h5>
+        <div class="link btn-floating center-align">
+         <%=link_to ('<i class="material-icons">delete_forever</i>').html_safe, user_article_path(user_article), method: :delete%>
+        </div>
         <div class="link btn-floating center-align play-pause">
           <a class="play"
            data-url=<%=user_article.article.audio.track.url%> data-id=<%= user_article.id %>>
@@ -37,12 +40,8 @@
         <div class="link btn-floating center-align inactive">
           <a class="pause" data-url=<%=user_article.article.audio.track.url%> data-id=<%= user_article.id %>><i class="material-icons">pause</i></a>
         </div>
-        <h5><%=user_article.article.title%></h5>
-        <div class="link btn-floating center-align">
-         <%=link_to ('<i class="material-icons">delete_forever</i>').html_safe, user_article_path(user_article), method: :delete%>
-        </div>
-        <div class='link btn show-text'>
-          <a id=<%= user_article.article.id %>>text</a>
+        <div class='link btn-floating center-align show-text'>
+          <a id=<%= user_article.article.id %>><i class="material-icons">description</i></a>
         </div>
 
         <div class='inactive text-scroll-container'>
