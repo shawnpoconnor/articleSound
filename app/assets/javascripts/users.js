@@ -15,14 +15,17 @@ $(document).ready(function() {
       $('#player').prop('src', url);
       $(this).addClass('clicked')
     }
+
     $(pause).removeClass("inactive");
+    $(pause).show();
     $(this.parentElement).addClass("inactive");
 
     $('#player').on('ended', function(){
       var id = $(this).data("id");
       var new_history = document.getElementById(id)
       $(new_history).remove();
-      $('#history').prepend(new_history);
+      debugger
+      $('#history').append(new_history);
       $.ajax({
         url: '/user_articles/'+ id,
         method: 'patch'
