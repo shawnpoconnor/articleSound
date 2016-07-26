@@ -3,7 +3,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-
     @article = Article.find_or_initialize_by(article_params)
 
     if @article.valid?
@@ -13,20 +12,36 @@ class ArticlesController < ApplicationController
       return
     else
       scraper = Scraper.new(@article.url)
-      @article.text = scraper.text
-      @article.domain = scraper.domain
-      @article.title = scraper.title
+      if scraper.valid_url?
+        @article.text = scraper.text
+        @article.domain = scraper.domain
+        @article.title = scraper.title
+      end
     end
 
     if @article.save
-      @article.call_watson
-      @audio = Audio.create!(article: @article, track: File.open("#{Rails.root}/tmp/article#{@article.id}.ogg") )
+      # @article.call_watson
+      # @audio = Audio.create!(article: @article, track: File.open("#{Rails.root}/tmp/article#{@article.id}.ogg") )
+      # UserArticle.create(user:current_user, article:@article)
+      # @article.delete_file
+      # Testing for not using Watson calls
+      @audio = Audio.create!(article: @article, track: File.open("article31.ogg") )
       UserArticle.create(user:current_user, article:@article)
-      @article.delete_file
-      redirect_to current_user
+      if request.xhr?
+        @queue = current_user.user_articles.where(listened: false).order("created_at DESC").limit(5)
+        render partial: "/users/queue", queue: @queue
+      else
+        redirect_to current_user
+      end
     else
-      flash[:notice]="Invalid URL."
-      redirect_to current_user
+      if request.xhr?
+        # binding.pry
+        # render partial: "/shared/error_messages", object: @article
+        render :json => { :error => scraper.text }.to_json, status: 422
+      else
+        flash[:notice]=scraper.text
+        redirect_to current_user
+      end
     end
   end
 

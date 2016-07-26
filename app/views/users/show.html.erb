@@ -2,7 +2,8 @@
     <div class="notice"><%=flash[:notice]%></div>
   <%end%>
 
-<div class="url-form">
+<div class="url-form" id="url-form">
+  <div id="url-error" style></div>
   <%=form_for @article do |f|%>
   <div class="row">
     <div class='input-field col s10 offset-5'>
@@ -11,7 +12,7 @@
         <%=f.text_field :url %>
       </span>
     </div>
-    <%=f.submit "Read", class:"btn waves-effect waves-orange offset-1", id:"read-button"%>
+    <%=f.submit "Read", class:"btn waves-effect waves-orange offset-1 read-button"%>
   </div>
   <%end%>
 </div>
@@ -27,6 +28,7 @@
     <h5 class="center-align"> history</h5>
     <%= render 'history', locals: { queue: @history } %>
   </div>
+
 
   <div class='col s6' id="queue">
     <h5 class="center-align">queue</h5>

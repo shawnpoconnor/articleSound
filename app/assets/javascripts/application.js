@@ -13,4 +13,5 @@
 //= require jquery
 //= require materialize-sprockets
 //= require jquery_ujs
+//= require spin.min.js
 //= require_tree .
