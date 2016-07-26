@@ -81,16 +81,14 @@ $(document).ready(function() {
     // var target = document.getElementById('read-button');
     // var spinner = new Spinner(opts).spin(target);
     var entered_url = $('#article_url').val();
-    debugger
     var request = $.ajax({
       url: target.attr('action'),
       method:target.attr('method'),
       data: { "article" : { "url": entered_url } }
     });
-
     request.done(function(response){
       console.log(response);
-      debugger
+      $('#queue').html(response);
     });
 
 

@@ -3,7 +3,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    binding.pry
     @article = Article.find_or_initialize_by(article_params)
 
     if @article.valid?
@@ -25,15 +24,13 @@ class ArticlesController < ApplicationController
       @article.delete_file
       if request.xhr?
         @queue = current_user.user_articles.where(listened: false).order("created_at DESC").limit(5)
-        status 200
-        erb :"/users/_queue", layout: false, locals: { queue: @queue }
+        render partial: "/users/queue", queue: @queue
       else
         redirect_to current_user
       end
     else
       if request.xhr?
-        status 422
-        respond: "Invaliddddd URL"
+        "Invalid URL"
       else
         flash[:notice]="Invalid URL."
         redirect_to current_user
