@@ -22,8 +22,7 @@ $(document).ready(function() {
       var id = $(this).data("id");
       var new_history = document.getElementById(id)
       $(new_history).remove();
-      // debugger
-      $('#history').append(new_history);
+      $('#history').prepend(new_history);
       $.ajax({
         url: '/user_articles/'+ id,
         method: 'patch'

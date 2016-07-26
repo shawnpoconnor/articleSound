@@ -23,11 +23,14 @@
 <br>
 
 <div id="your-articles" class="row">
-  <div class="col s6">
+  <div class="col s6" id="history">
+    <h5 class="center-align"> history</h5>
     <%= render 'history', locals: { queue: @history } %>
   </div>
 
-  <div class='col s6' id='queue'>
+
+  <div class='col s6' id="queue">
+    <h5 class="center-align">queue</h5>
     <%= render 'queue', locals: { queue: @queue } %>
   </div>
 

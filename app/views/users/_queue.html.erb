@@ -1,7 +1,6 @@
-<h5 class="center-align">queue</h5>
 <% @queue.each do |user_article|%>
-  <div class="article">
-    <h5><%=user_article.article.title%></h5>
+  <div class="article" id=<%= user_article.id %>>
+    <div><h5><%=user_article.article.title%></h5></div>
       <div class="btn-floating center-align">
        <%=link_to ('<i class="material-icons">delete_forever</i>').html_safe, user_article_path(user_article), method: :delete%>
       </div>
