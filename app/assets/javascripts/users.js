@@ -46,8 +46,6 @@ $(document).ready(function() {
 
 
   // Spinner
-
-
   var opts = {
     lines: 11 // The number of lines to draw
   , length: 33 // The length of each line
@@ -71,16 +69,14 @@ $(document).ready(function() {
   , position: 'absolute' // Element positioning
   };
 
-  // var target = document.getElementById("read-button");
-  // var spinner = new Spinner(opts).spin(target);
-
-
   $('form').submit(function(e){
     e.preventDefault();
     var target = $(e.target);
-    // var target = document.getElementById('read-button');
-    // var spinner = new Spinner(opts).spin(target);
+    var target1 = document.getElementById('url-form');
+    var spinner = new Spinner(opts).spin(target1);
     var entered_url = $('#article_url').val();
+    var button = $(this).find('input[type=submit]');
+    button.prop('disabled', true);
     var request = $.ajax({
       url: target.attr('action'),
       method:target.attr('method'),
@@ -88,16 +84,11 @@ $(document).ready(function() {
     });
     request.done(function(response){
       console.log(response);
+      spinner.stop();
       $('#queue').html(response);
+      button.prop('disabled', false);
     });
 
 
   });
-  // $(this).ajaxStart(function(){
-  //   $("#read-button").css("display", "block");
-  // });
-
-  // $(this).ajaxComplete(function(){
-  //     $("#read-button").css("display", "none");
-  // });
 });

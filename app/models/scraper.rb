@@ -63,7 +63,6 @@ class Scraper
     elsif @domain == "espn.go.com"
       self.white_space_cleaner
       @text.gsub!(/\A.*comment/, "")
-      binding.pry
     end
   end
 

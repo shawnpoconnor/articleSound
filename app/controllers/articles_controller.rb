@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    binding.pry
     @article = Article.find_or_initialize_by(article_params)
 
     if @article.valid?
@@ -22,6 +23,9 @@ class ArticlesController < ApplicationController
       @audio = Audio.create!(article: @article, track: File.open("#{Rails.root}/tmp/article#{@article.id}.ogg") )
       UserArticle.create(user:current_user, article:@article)
       @article.delete_file
+      # Testing for not using Watson calls
+      # @audio = Audio.create!(article: @article, track: File.open("article31.ogg") )
+      # UserArticle.create(user:current_user, article:@article)
       if request.xhr?
         @queue = current_user.user_articles.where(listened: false).order("created_at DESC").limit(5)
         render partial: "/users/queue", queue: @queue
