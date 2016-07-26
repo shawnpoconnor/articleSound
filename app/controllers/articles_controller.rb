@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
     else
       scraper = Scraper.new(@article.url)
       if scraper.valid_url?
+        scraper.scrape
         @article.text = scraper.text
         @article.domain = scraper.domain
         @article.title = scraper.title
@@ -35,8 +36,6 @@ class ArticlesController < ApplicationController
       end
     else
       if request.xhr?
-        # binding.pry
-        # render partial: "/shared/error_messages", object: @article
         render :json => { :error => scraper.text }.to_json, status: 422
       else
         flash[:notice]=scraper.text
