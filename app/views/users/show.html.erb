@@ -22,54 +22,59 @@
   </div>
 <br>
 
-<div id="your-articles">
-  <h4 class="center-align">Recently Added</h4>
-  <h3> history</h3>
-  <%@history.each do |user_article|%>
-    <div class="article">
-    
-      <div class="link btn-floating center-align play-pause">
-        <a class="play" data-url=<%=user_article.article.audio.track.url%> ><i class="material-icons">play_arrow</i></a>
-      </div>
-      <div class="link btn-floating center-align inactive">
-        <a class="pause" data-url=<%=user_article.article.audio.track.url%>><i class="material-icons">pause</i></a>
-      </div>
-      <h4><%=user_article.article.title%></h4>
-      <div class="link btn wave-effect">
-        <%=link_to "remove", user_article_path(user_article), method: :delete%>
-      </div>
-      <div class='link btn show-text'>
-        <a id=<%= user_article.article.id %>>text</a>
-      </div>
+<div id="your-articles" class="row">
+  <div class="col s5">
+    <h5 class="center-align"> history</h5>
+    <%@history.each do |user_article|%>
+      <div class="article">
 
-      <div class='inactive text-scroll-container'>
-        <span><%= user_article.article.text %></span>
-      </div>
+        <div class="link btn-floating center-align play-pause">
+          <a class="play"
+           data-url=<%=user_article.article.audio.track.url%> data-id=<%= user_article.id %>>
+           <i class="material-icons">play_arrow</i>
+          </a>
+        </div>
+        <div class="link btn-floating center-align inactive">
+          <a class="pause" data-url=<%=user_article.article.audio.track.url%> data-id=<%= user_article.id %>><i class="material-icons">pause</i></a>
+        </div>
+        <h5><%=user_article.article.title%></h5>
+        <div class="link btn wave-effect">
+          <%=link_to "remove", user_article_path(user_article), method: :delete%>
+        </div>
+        <div class='link btn show-text'>
+          <a id=<%= user_article.article.id %>>text</a>
+        </div>
 
+        <div class='inactive text-scroll-container'>
+          <span><%= user_article.article.text %></span>
+        </div>
+      </div>
+    <%end%>
+  </div>
+
+  <div class='col s5'>
+    <h5 class="center-align">queue</h5>
+    <%@queue.each do |user_article|%>
+      <div class="article">
+
+        <div class="link btn-floating center-align play-pause">
+          <a class="play" data-url=<%=user_article.article.audio.track.url%> data-id=<%= user_article.id %>><i class="material-icons">play_arrow</i></a>
+        </div>
+        <div class="link btn-floating center-align inactive">
+          <a class="pause" data-url=<%=user_article.article.audio.track.url%>data-id=<%= user_article.id %>><i class="material-icons">pause</i></a>
+        </div>
+        <h5><%=user_article.article.title%></h5>
+        <div class="link btn wave-effect">
+          <%=link_to "remove", user_article_path(user_article), method: :delete%>
+        </div>
+        <div class='link btn show-text'>
+          <a id=<%= user_article.article.id %>>text</a>
+        </div>
+
+        <div class='inactive text-scroll-container'>
+          <span><%= user_article.article.text %></span>
+        </div>
+      </div>
+    <%end%>
     </div>
-  <%end%>
-  <h3> queue</h3>
-  <%@queue.each do |user_article|%>
-    <div class="article">
-      
-      <div class="link btn-floating center-align play-pause">
-        <a class="play" data-url=<%=user_article.article.audio.track.url%> ><i class="material-icons">play_arrow</i></a>
-      </div>
-      <div class="link btn-floating center-align inactive">
-        <a class="pause" data-url=<%=user_article.article.audio.track.url%>><i class="material-icons">pause</i></a>
-      </div>
-      <h4><%=user_article.article.title%></h4>
-      <div class="link btn wave-effect">
-        <%=link_to "remove", user_article_path(user_article), method: :delete%>
-      </div>
-      <div class='link btn show-text'>
-        <a id=<%= user_article.article.id %>>text</a>
-      </div>
-
-      <div class='inactive text-scroll-container'>
-        <span><%= user_article.article.text %></span>
-      </div>
-
-    </div>
-  <%end%>
 </div>

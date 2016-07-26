@@ -44,11 +44,12 @@ audio::-webkit-media-controls-timeline{
   background-color: $primary-color-light;
 }
 
-h4{
+h5{
   font-weight:bold;
+  display: inline-block;
 }
 
 #your-articles{
-  margin: 40px auto;
-  padding: 20px;
+  padding:50px;
+  margin-left:14%;
 }
