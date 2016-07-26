@@ -19,13 +19,11 @@ class ArticlesController < ApplicationController
     end
 
     if @article.save
-      # foo_path = @article.call_watson
       @article.call_watson
       @audio = Audio.create!(article: @article, track: File.open("#{Rails.root}/tmp/article#{@article.id}.ogg") )
-
-      #@audio = Audio.create!(article: @article, track: File.open("#{Rails.root}/app/assets/audio/article#{@article.id}.ogg"))
       UserArticle.create(user:current_user, article:@article)
       @article.delete_file
+      redirect_to current_user
     else
       flash[:notice]="Invalid URL."
       redirect_to current_user
