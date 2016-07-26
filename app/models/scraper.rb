@@ -30,7 +30,7 @@ class Scraper
     # doc_body attr is now just text body container
 
     self.white_space_cleaner
-    self.text_length
+    self.text_length_development
   end
 
   def url_check
@@ -105,9 +105,13 @@ class Scraper
     self.text.gsub!(/\s+/, " ")
   end
 
-  def text_length
-    if text.length > 5000
-      @text = text[0,4999]
-    end
+  # def text_length
+  #   if text.length > 5000
+  #     @text = text[0,4999]
+  #   end
+  # end
+  # Shorter watson calls as delete_file works on heroku
+  def text_length_development
+    @text = text[0,100]
   end
 end
