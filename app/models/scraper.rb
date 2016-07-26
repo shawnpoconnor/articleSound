@@ -30,7 +30,8 @@ class Scraper
   end
 
   def valid_url?
-    if !@domain || !CONTENT_TAG.has_key?(@domain)
+
+    if !@domain || !CONTENT_TAG.has_key?(@domain.to_sym)
       false
     else
       true
