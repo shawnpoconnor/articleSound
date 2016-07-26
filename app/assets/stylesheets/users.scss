@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$primary-color-light:  #3885D5;
+
 .inactive {
   display:none;
 }
@@ -16,4 +18,37 @@
   border:1px solid #ccc;
   font:16px/26px Georgia, Garamond, Serif;
   overflow:auto;
+}
+
+.url-form{
+  width:100%;
+  margin: 20px auto;
+}
+
+#player{
+  height:100%;
+  width:100%;
+  margin-bottom:20px;
+  padding:20px;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: $primary-color-light;
+  height: 50px;
+  width:80%;
+  padding: 10px;
+  margin:auto;
+}
+
+audio::-webkit-media-controls-timeline{
+  background-color: $primary-color-light;
+}
+
+h4{
+  font-weight:bold;
+}
+
+#your-articles{
+  margin: 40px auto;
+  padding: 20px;
 }
