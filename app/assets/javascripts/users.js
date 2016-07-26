@@ -13,6 +13,7 @@ $(document).ready(function() {
       $('#player').get(0).play();
     }else {
       $('#player').prop('src', url);
+      $(this).addClass('clicked')
     }
     $(pause).removeClass("inactive");
     $(this.parentElement).addClass("inactive");
@@ -42,4 +43,6 @@ $(document).ready(function() {
       $(text).slideToggle();
     }
   });
+
+
 });
