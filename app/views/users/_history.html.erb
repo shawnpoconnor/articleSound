@@ -1,7 +1,8 @@
-<h5 class="center-align"> history</h5>
     <%@history.each do |user_article|%>
-      <div class="article">
+      <div class="article" <%= user_article.article.id %>>
+        <div>
         <h5><%=user_article.article.title%></h5>
+        </div>
           <div class="btn-floating center-align">
            <%=link_to ('<i class="material-icons">delete_forever</i>').html_safe, user_article_path(user_article), method: :delete%>
           </div>
