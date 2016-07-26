@@ -26,13 +26,25 @@
   <h4 class="center-align">Recently Added</h4>
   <%@articles.each do |article|%>
     <div class="article">
-      <h5><%=article.title%></h5>
-      <div class="link btn" ><a class="play" data-url=<%=article.audio.track.url%> data-id=<%=article.id%> >play</a></div>
-      <div class="link btn"> <%=link_to "remove", user_article_path(article), method: :delete%></div>
-      <div class='link btn show-text'><a id=<%= article.id %>>text</a></div>
+      <h4><%=article.title%></h4>
+
+      <div class="link btn play-pause">
+        <a class="play" data-url=<%=article.audio.track.url%> >play</a>
+      </div>
+      <div class="link btn inactive">
+        <a class="pause" data-url=<%=article.audio.track.url%>>pause</a>
+      </div>
+      <div class="link btn">
+        <%=link_to "remove", user_article_path(article), method: :delete%>
+      </div>
+      <div class='link btn show-text'>
+        <a id=<%= article.id %>>text</a>
+      </div>
+
       <div class='inactive text-scroll-container'>
         <span><%= article.text %></span>
       </div>
+
     </div>
   <%end%>
 </div>
