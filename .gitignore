@@ -34,4 +34,5 @@ Thumbs.db
 
 # Ignore application configuration
 /config/application.yml
+/assets/audio
 .env

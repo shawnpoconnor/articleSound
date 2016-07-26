@@ -26,7 +26,6 @@ class ArticlesController < ApplicationController
       #@audio = Audio.create!(article: @article, track: File.open("#{Rails.root}/app/assets/audio/article#{@article.id}.ogg"))
       UserArticle.create(user:current_user, article:@article)
       @article.delete_file
-      redirect_to current_user
     else
       flash[:notice]="Invalid URL."
       redirect_to current_user
