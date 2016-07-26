@@ -7,7 +7,17 @@ $(document).ready(function() {
   $('.play').click(function(e){
     var url = $(this).data("url");
     $('#player').prop('src', url);
+  
+    $('#player').on('ended', function(){
+      var id = $(this).data("id");
+      $.ajax({
+        url: '/user_articles/'+ id,
+        method: 'patch'
+      });
+    }.bind(this));
   });
+
+
 
   $('.article').on('click', '.show-text', function(e) {
     var text = this.parentElement.lastChild.previousElementSibling;
