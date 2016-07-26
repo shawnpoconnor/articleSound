@@ -98,7 +98,7 @@ class Scraper
       @text = title + " " + doc_body.text
     end
     # npr escaped double quotes were breaking watson calls
-    @text.gsub!("\"","")
+    @text.gsub!("\""," ")
   end
 
   def white_space_cleaner
@@ -111,7 +111,8 @@ class Scraper
   #   end
   # end
   # Shorter watson calls as delete_file works on heroku
+
   def text_length_development
-    @text = text[0,100]
+    @text = text[0,250]
   end
 end
