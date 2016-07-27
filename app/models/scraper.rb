@@ -97,11 +97,13 @@ class Scraper
 
   def doc_body_remove_tags
     @doc_body.search("a").each do |a_node|
-      a_node.remove if a_node.attr('href').match(/facebook.com/)
-      a_node.remove if a_node.attr('href').match(/twitter.com/)
-      a_node.remove if a_node.attr('href').match(/pinterest.com/)
-      a_node.remove if a_node.attr('href').match(/mailto/)
-      a_node.remove if a_node.attr('href').match(/print/)
+      if !!a_node.attr('href')
+        a_node.remove if a_node.attr('href').match(/facebook.com/)
+        a_node.remove if a_node.attr('href').match(/twitter.com/)
+        a_node.remove if a_node.attr('href').match(/pinterest.com/)
+        a_node.remove if a_node.attr('href').match(/mailto/)
+        a_node.remove if a_node.attr('href').match(/print/)
+      end
     end
     if @domain == "espn.go.com"
       @doc_body.search(".inline, editorial").remove
