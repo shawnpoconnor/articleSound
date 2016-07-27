@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('form').submit(function(e){
+  $('#new_user_article').submit(function(e){
     e.preventDefault();
     $.ajax({
       url: $(this).attr('action'),

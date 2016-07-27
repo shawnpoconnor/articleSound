@@ -87,30 +87,30 @@ $(document).ready(function() {
   , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
   , zIndex: 2e9 // The z-index (defaults to 2000000000)
   , className: 'spinner' // The CSS class to assign to the spinner
-  , top: '45%' // Top position relative to parent
+  , top: '50%' // Top position relative to parent
   , left: '50%' // Left position relative to parent
   , shadow: true // Whether to render a shadow
   , hwaccel: false // Whether to use hardware acceleration
   , position: 'absolute' // Element positioning
   };
 
-  $('#url-form').submit(function(e){
+   $('.url-form').on('submit','#new_article',function(e){
     e.preventDefault();
 
     var target = $(e.target);
-    var button2 = document.getElementsById("read-button")[0];
+    var button2 = document.getElementsByClassName("read-button")[0];
     button2.firstChild.style.visibility="hidden";
     var spinner = new Spinner(opts).spin(button2);
     var entered_url = $('#article_url').val();
     var button = $(this).find('input[type=submit]');
     button.prop('disabled', true);
-
     var request = $.ajax({
       url: target.attr('action'),
       method:target.attr('method'),
       data: { "article" : { "url": entered_url } }
     });
     request.done(function(response){
+      // debugger
       spinner.stop();
       button2.firstChild.style.visibility="visible";
       $('#queue').html(response);

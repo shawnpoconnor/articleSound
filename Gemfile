@@ -31,6 +31,7 @@ gem "binding_of_caller"
 # gem 'figaro'
 gem 'dotenv-rails', :groups => [:development, :test]
 
+gem 'faker'
 
 gem "paperclip"
 gem 'aws-sdk'

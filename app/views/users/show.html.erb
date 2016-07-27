@@ -4,7 +4,7 @@
 
 <div class="url-form" id="url-form">
   <div id="url-error" style></div>
-  <%=form_for @article do |f|%>
+  <%=form_for(@article, remote: true) do |f|%>
   <div class="row">
     <div class='input-field col s10 offset-5'>
       <span class="flow-text">
@@ -12,7 +12,10 @@
         <%=f.text_field :url %>
       </span>
     </div>
-    <%=f.submit "Read", class:"btn offset-1", id:"read-button"%>
+    <div id="submit-button">  </div>
+
+<%=f.submit "Read", class:"btn waves-effect waves-orange offset-1 read-button"%>
+
   </div>
   <%end%>
 </div>
