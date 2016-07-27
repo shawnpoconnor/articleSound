@@ -30,7 +30,9 @@ class ApplicationController < ActionController::Base
     @current_user = nil
   end
 
-
+  def not_found
+    redirect_to '/404'
+  end
 
 end
 
