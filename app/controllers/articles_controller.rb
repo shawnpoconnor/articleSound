@@ -34,13 +34,13 @@ class ArticlesController < ApplicationController
 
     if @article.save
       # binding.pry
-      # @article.call_watson
-      # @audio = Audio.create!(article: @article, track: File.open("#{Rails.root}/tmp/article#{@article.id}.ogg") )
-      # UserArticle.create(user:current_user, article:@article)
+      @article.call_watson
+      @audio = Audio.create!(article: @article, track: File.open("#{Rails.root}/tmp/article#{@article.id}.ogg") )
+      UserArticle.create(user:current_user, article:@article)
       # @article.delete_file
       # Testing for not using Watson calls
-      @audio = Audio.create!(article: @article, track: File.open("article12.ogg") )
-      UserArticle.create(user:current_user, article:@article)
+      # @audio = Audio.create!(article: @article, track: File.open("article12.ogg") )
+      # UserArticle.create(user:current_user, article:@article)
       if request.xhr?
         @queue = current_user.user_articles.where(listened: false).order("created_at DESC").limit(5)
         render partial: "/users/queue", queue: @queue
@@ -49,7 +49,6 @@ class ArticlesController < ApplicationController
       end
     else
       if request.xhr?
-        binding.pry
         render :json => { :error => scraper.text }.to_json, status: 422
       else
         flash[:notice]=scraper.text
