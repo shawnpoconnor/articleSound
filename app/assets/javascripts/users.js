@@ -56,6 +56,16 @@ $(document).ready(function() {
     }
   });
 
+  $('#history').click(function(e) {
+    $("#queue").removeClass('inactive');
+    $("#history").addClass('inactive');
+  });
+
+  $('#queue').click(function(e) {
+    $("#history").removeClass('inactive');
+    $("#queue").addClass('inactive');
+  });
+
 
   // Spinner
   var opts = {
