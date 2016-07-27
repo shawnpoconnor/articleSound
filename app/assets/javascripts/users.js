@@ -57,11 +57,13 @@ $(document).ready(function() {
   });
 
   $('#history').on('click', "h4", function(e) {
+    debugger
     $("#queue").removeClass('inactive');
     $("#history").addClass('inactive');
   });
 
   $('#queue').on('click', "h4", function(e) {
+    debugger
     $("#history").removeClass('inactive');
     $("#queue").addClass('inactive');
   });

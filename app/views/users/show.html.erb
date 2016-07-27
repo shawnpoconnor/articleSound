@@ -24,12 +24,12 @@
 <br>
 
 <div id="your-articles" class="row">
+    <h4 class="center-align">Queue</h4>
+    <h4 class="center-align">History</h4>
   <div class="col s6 inactive" id="history">
     <%= render 'history', locals: { queue: @history } %>
   </div>
-
   <div class='col s6' id="queue">
-    <h5 class="center-align">Queue</h5>
     <%= render 'queue', locals: { queue: @queue } %>
   </div>
 
