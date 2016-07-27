@@ -34,7 +34,6 @@ class ArticlesController < ApplicationController
     end
 
     if @article.save
-      # binding.pry
       # @article.call_watson
       # @audio = Audio.create!(article: @article, track: File.open("#{Rails.root}/tmp/article#{@article.id}.ogg") )
       # UserArticle.create(user:current_user, article:@article)
@@ -81,7 +80,6 @@ class ArticlesController < ApplicationController
   #         @article.title = scraper.title
   #       end
   #       if @article.save
-  #         # binding.pry
   #         # @article.call_watson
   #         # @audio = Audio.create!(article: @article, track: File.open("#{Rails.root}/tmp/article#{@article.id}.ogg") )
   #         # UserArticle.create(user:current_user, article:@article)

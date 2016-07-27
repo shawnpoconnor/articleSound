@@ -41,7 +41,6 @@ urls.each do |url|
   article = user.articles.create(text: scraper.text, url:url, domain:scraper.domain, title:scraper.title)
   articles << article
   article.call_watson
-  binding.pry
   Audio.create!(article: article, track: File.open("#{Rails.root}/tmp/article#{article.id}.ogg"))
   article.delete_file
 end
