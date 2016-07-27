@@ -19,7 +19,9 @@ class Article < ApplicationRecord
     return self.user_articles.count
   end
 
-  def self.top_five
-    Article.all.sort{ |x, y| y.readers <=> x.readers }[0..4]
+  def self.top_five(user_id)
+    user_articles = User.find(user_id).articles
+    articles = Article.all.reject{|a| user_articles.include?(a)}
+    articles.sort{ |x, y| y.readers <=> x.readers }[0..4]
   end
 end
