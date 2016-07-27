@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     @article = Article.find_or_initialize_by(article_params)
 
     if @article.valid?
@@ -50,7 +50,6 @@ class ArticlesController < ApplicationController
       end
     else
       if request.xhr?
-        binding.pry
         render :json => { :error => scraper.text }.to_json, status: 422
       else
         flash[:notice]=scraper.text

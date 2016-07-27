@@ -138,7 +138,6 @@ $(document).ready(function() {
       data: { "article" : { "url": entered_url } }
     });
     request.done(function(response){
-      // debugger
       spinner.stop();
       button2.firstChild.style.visibility="visible";
       $('#queue').html(response);
