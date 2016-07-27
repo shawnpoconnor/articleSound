@@ -14,6 +14,7 @@ $(document).ready(function() {
     // }else {
       $('#player').prop('src', url);
       $('#player').get(0).play();
+      $('#player').prop('src', url);
       $(this).addClass('clicked')
     // }
     $(pause).removeClass("inactive");
