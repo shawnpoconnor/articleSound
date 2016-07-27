@@ -56,12 +56,12 @@ $(document).ready(function() {
     }
   });
 
-  $('#history').click(function(e) {
+  $('#history').on('click', "h4", function(e) {
     $("#queue").removeClass('inactive');
     $("#history").addClass('inactive');
   });
 
-  $('#queue').click(function(e) {
+  $('#queue').on('click', "h4", function(e) {
     $("#history").removeClass('inactive');
     $("#queue").addClass('inactive');
   });
