@@ -42,7 +42,8 @@ h1{
 }
 
 nav{
-  height:80px;
+  height:84px;
+  padding:0px 20px;
 }
 
 nav li{
@@ -52,27 +53,23 @@ nav li{
 
 .dropdown-button{
   font-size: 1.5rem;
-  padding:10px 0;
+  padding:10px 0px;
 }
 
+
 nav img{
-  height: 60px;
+  height: 65px;
   vertical-align:middle;
-  margin:10px 10px;
+  margin:10px 0px;
 }
 
 .notice{
   padding: 20px 30px;
 }
 
-dropdown-button{
-  margin: 10px;
-}
-
 .article{
   padding:20px;
 }
-
 
 #homepage{
   height: 100vh;
