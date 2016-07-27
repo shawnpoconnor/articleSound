@@ -116,6 +116,7 @@ audio::-webkit-media-controls-timeline{
 
 
 @media #{$small-and-down}{
+
   audio::-webkit-media-controls-panel {
     height: 50px;
     width:100%;
@@ -147,6 +148,5 @@ audio::-webkit-media-controls-timeline{
     height: 10px;
     width: 100%;
   }
-
 
 }
