@@ -65,16 +65,21 @@ $(document).ready(function() {
     }
   });
 
-  $('#history-tab').click(function(e) {
-
+  $('#queue-tab').click(function(e) {
+    var tab = $(this.parentElement)
+    // debugger
     $("#queue").removeClass('inactive');
+    tab.addClass('open-tab');
     $("#history").addClass('inactive');
+    $("#history-tab").parent().removeClass('open-tab');
   });
 
-  $('#queue-tab').click(function(e) {
-
+  $('#history-tab').click(function(e) {
+    var tab = $(this.parentElement)
     $("#history").removeClass('inactive');
+    tab.addClass('open-tab');
     $("#queue").addClass('inactive');
+    $("#queue-tab").parent().removeClass('open-tab');
   });
 
 

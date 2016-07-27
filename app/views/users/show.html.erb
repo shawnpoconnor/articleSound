@@ -24,8 +24,16 @@
 <br>
 
 <div id="your-articles" class="row">
-    <h4 class="center-align" id="queue-tab">Queue</h4>
-    <h4 class="center-align" id="history-tab">History</h4>
+  <table id='tabs'>
+    <tr>
+      <td>
+        <h4 class="center-align" id="history-tab">History</h4>
+      </td>
+      <td class='open-tab'>
+        <h4 class="center-align" id="queue-tab">Queue</h4>
+      </td>
+    </tr>
+  </table>
   <div class="col s6 inactive" id="history">
     <%= render 'history', locals: { queue: @history } %>
   </div>
