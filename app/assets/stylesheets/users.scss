@@ -101,3 +101,14 @@ audio::-webkit-media-controls-timeline{
 #queue {
   margin-left: 25%;
 }
+
+@media screen and (max-width: 768px) {
+  .s3 {
+    height:75px;
+    font-size: 200%;
+  }
+  .home-link {
+    padding-top: 50%;
+  }
+
+}
