@@ -4,7 +4,7 @@
 $(document).ready(function() {
   Materialize.updateTextFields();
 
-  $('.play').click(function(e){
+  $('.play').on('click', '.play', function(e){
     e.preventDefault();
     var pause = this.parentElement.nextElementSibling;
     var url = $(this).data("url");
