@@ -1,4 +1,9 @@
 $(document).ready(function() {
+  $(".button-collapse").sideNav({
+    menuWidth: 200, // Default is 240
+    edge: 'right', // Choose the horizontal origin
+    closeOnClick: true 
+  });
   $('#new_user_article').submit(function(e){
     e.preventDefault();
     $.ajax({
@@ -10,3 +15,6 @@ $(document).ready(function() {
     })
   })
 })
+
+
+        
