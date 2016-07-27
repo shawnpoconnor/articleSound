@@ -1,0 +1,13 @@
+  <%@articles.each do |article|%>
+    <table class="bordered">
+      <tr>
+        <td><p><%=article.title%></p></td>
+        <td>
+          <%=form_for @user_article do |f| %>
+            <%=f.hidden_field :article_id, value: article.id %>
+            <%=f.submit "+", class:"btn-floating center-align"%>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  <%end%>
