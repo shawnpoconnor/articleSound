@@ -1,6 +1,3 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-
 $(document).ready(function() {
   Materialize.updateTextFields();
 
@@ -8,21 +5,33 @@ $(document).ready(function() {
     e.preventDefault();
     var pause = this.parentElement.nextElementSibling;
     var url = $(this).data("url");
+    var a = $(".pause");
+    for (var i = 0; i < a.length; i ++) {
+      var c = $(a[i].parentElement);
+        if (!c.hasClass('inactive')) {
+          c.addClass('inactive');
+        }
+        }
+    var b = $(".play");
+      for (i = 0; i < b.length; i ++){ $(b[i].parentElement).removeClass('inactive'); }
 
+    $(this.parentElement).addClass('last-play');
     if($(this).hasClass('clicked')) {
       $('#player').get(0).play();
     }else {
       $('#player').prop('src', url);
-      $(this).addClass('clicked')
+      $(this).addClass('clicked');
     }
+
     $(pause).removeClass("inactive");
+    $(pause).show();
     $(this.parentElement).addClass("inactive");
 
     $('#player').on('ended', function(){
       var id = $(this).data("id");
-      var new_history = document.getElementById(id)
+      var new_history = document.getElementById(id);
       $(new_history).remove();
-      $('#history').prepend(new_history);
+      $('#history').append(new_history);
       $.ajax({
         url: '/user_articles/'+ id,
         method: 'patch'
@@ -54,7 +63,7 @@ $(document).ready(function() {
   , length: 20 // The length of each line
   , width: 6 // The line thickness
   , radius: 27 // The radius of the inner circle
-  , scale: .27 // Scales overall size of the spinner
+  , scale: 0.27 // Scales overall size of the spinner
   , corners: 1 // Corner roundness (0..1)
   , color: '#00BFFF' // #rgb or #rrggbb or array of colors
   , opacity: 0.6 // Opacity of the lines
@@ -77,7 +86,7 @@ $(document).ready(function() {
 
     var target = $(e.target);
     var button2 = document.getElementsByClassName("read-button")[0];
-    button2.firstChild.style.visibility="hidden"
+    button2.firstChild.style.visibility="hidden";
     var spinner = new Spinner(opts).spin(button2);
     var entered_url = $('#article_url').val();
     var button = $(this).find('input[type=submit]');
@@ -90,18 +99,18 @@ $(document).ready(function() {
     });
     request.done(function(response){
       spinner.stop();
-      button2.firstChild.style.visibility="visible"
+      button2.firstChild.style.visibility="visible";
       $('#queue').html(response);
       button.prop('disabled', false);
       document.getElementById("article_url").value = "";
     });
     request.fail(function(response){
       spinner.stop();
-      button2.firstChild.style.visibility="visible"
+      button2.firstChild.style.visibility="visible";
       button.prop('disabled', false);
       var errorMessage = JSON.parse(response.responseText).error;
       $('#url-error').html(errorMessage);
       document.getElementById("article_url").value = "";
-    })
+    });
   });
 });
