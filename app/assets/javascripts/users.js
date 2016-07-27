@@ -4,17 +4,17 @@
 $(document).ready(function() {
   Materialize.updateTextFields();
 
-  $('.play').on('click', '.play', function(e){
+  $('.play').on('click', function(e){
     e.preventDefault();
     var pause = this.parentElement.nextElementSibling;
     var url = $(this).data("url");
 
-    if($(this).hasClass('clicked')) {
-      $('#player').get(0).play();
-    }else {
+    // if($(this).hasClass('clicked')) {
+    //   $('#player').get(0).play();
+    // }else {
       $('#player').prop('src', url);
       $(this).addClass('clicked')
-    }
+    // }
     $(pause).removeClass("inactive");
     $(this.parentElement).addClass("inactive");
 
