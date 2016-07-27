@@ -11,19 +11,15 @@ class ArticlesController < ApplicationController
         if request.xhr?
           @queue = current_user.user_articles.where(listened: false).order("created_at DESC").limit(5)
           render partial: "/users/queue", queue: @queue
-          return
         else
           redirect_to current_user
-          return
         end
       else
         if request.xhr?
           render :json => { :error => "Article already in your queue/history." }.to_json, status: 422
-          return
         else
           flash[:notice] = "Article already in your queue/history."
           redirect_to current_user
-          return
         end
       end
     else
@@ -48,7 +44,6 @@ class ArticlesController < ApplicationController
       if request.xhr?
         @queue = current_user.user_articles.where(listened: false).order("created_at DESC").limit(5)
         render partial: "/users/queue", queue: @queue
-        # break
       else
         redirect_to current_user
       end
