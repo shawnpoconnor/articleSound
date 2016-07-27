@@ -82,3 +82,22 @@ audio::-webkit-media-controls-timeline{
   margin-bottom:40px;
   border-bottom:1px solid $primary-color;
 }
+
+#tabs {
+  width:55%;
+  border-bottom:3px solid $primary-color;
+}
+
+#open-tab {
+  border:3px solid $primary-color;
+  border-bottom: 3px solid white;
+  border-radius: 0px 50px 50px 0px;
+}
+
+#history {
+  margin-left: 25%;
+}
+
+#queue {
+  margin-left: 25%;
+}
