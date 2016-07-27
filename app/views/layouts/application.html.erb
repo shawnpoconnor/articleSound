@@ -13,25 +13,18 @@
   <body>
     <nav>
       <div class="nav-wrapper">
-        <ul id="nav-mobile" class="right">
-          <% if logged_in? %>
-            <ul id="dropdown1" class="dropdown-content">
-              <li><%=link_to "edit", edit_user_path(current_user)%></li>
-              <li><%=link_to "logout", logout_path, method:"delete"%></li>
-            </ul>
-            <li><a class="dropdown-button" href=<%=user_path(current_user)%> data-activates="dropdown1" data-hover="true" data-beloworigin="true"><%=current_user.username%></a></li>
-          <% end %>
+        <a class="brand-logo" href="/"><%=image_tag("logo")%></a>
+        <% if logged_in? %>
+        <ul class="right hide-on-med-and-down">
+          <ul id="dropdown1" class="dropdown-content">
+            <li><%=link_to "edit", edit_user_path(current_user)%></li>
+            <li><%=link_to "logout", logout_path, method:"delete"%></li>
+          </ul>
+          <li><a class="dropdown-button" href=<%=user_path(current_user)%> data-activates="dropdown1" data-hover="true" data-beloworigin="true"><%=current_user.username%></a></li>
         </ul>
-
-        <ul class="left">
-          <a href="/"><%=image_tag("logo")%></a>
-        </ul>
+        <% end %>
       </div>
-    </nav>
-
-
+    </nav>   
     <%= yield %>
-
-
   </body>
 </html>
