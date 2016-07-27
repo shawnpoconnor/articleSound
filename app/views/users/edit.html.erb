@@ -1,5 +1,7 @@
-<h1> Edit </h1>
-<% provide(:button_text, 'Save') %>
-<%= render 'form'%>
-<%=link_to "change your password", new_password_path%>
-<%=link_to "delete account", @user, method: :delete, data: { confirm: "Are you sure you want to delete your account?" }%>
+<div class="container">
+  <h1> Edit </h1>
+  <% provide(:button_text, 'Save') %>
+  <%= render 'form'%>
+  <%=link_to "change your password", new_password_path%>
+  <%=link_to "delete account", @user, method: :delete, data: { confirm: "Are you sure you want to delete your account?" }%>
+</div>

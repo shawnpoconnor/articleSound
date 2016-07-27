@@ -17,8 +17,8 @@
     <%else%>
     <div class="trending-articles container">
       <div class="row">
-        <h2 class="col s6 offset-s4">Trending<i class="material-icons small">trending_up</i></h2>
-        <div id="trending" class="col s9 offset-s2">
+        <h2 class="center-align">Trending<i class="material-icons small">trending_up</i></h2>
+        <div id="trending">
           <%=render 'shared/trending', locals: {articles: @articles}%>
         </div>
         <%=link_to "profile", current_user, class:"profile btn col s2 offset-s5"%>

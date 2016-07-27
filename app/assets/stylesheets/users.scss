@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 $primary-color-dark:   #455A64;
 $primary-color:        #607D8B;
 $primary-color-light:  #CFD8DC;
@@ -11,6 +10,19 @@ $accent-color:         #ff8f00;
 $primary-text-color:   #212121;
 $secondary-text-color: #727272;
 $divider-color:        #B6B6B6;
+
+$small-screen-up: 601px !default;
+$medium-screen-up: 993px !default;
+$large-screen-up: 1201px !default;
+$small-screen: 600px !default;
+$medium-screen: 992px !default;
+$large-screen: 1200px !default;
+
+$medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
+$large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
+$small-and-down: "only screen and (max-width : #{$small-screen})" !default;
+$medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
+$medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
 
 
 .inactive {
@@ -26,49 +38,32 @@ $divider-color:        #B6B6B6;
 }
 
 .url-form{
-  width:70%;
-  margin: 100px auto 40px;
-}
-
-.btn{
-  background-color: $accent-color;
-  color:white;
-}
-
-.btn:hover{
-  background-color: white;
-  color: $primary-color;
+  margin: 50px auto 20px auto;
+  text-align: center;
 }
 
 #player{
-  height:100%;
   width:100%;
-  margin-bottom:20px;
+  margin-bottom:60px;
   padding:20px;
 }
 
 audio::-webkit-media-controls-panel {
   background-color: $primary-color;
   height: 70px;
-  width:80%;
+  width:100%;
   padding: 10px;
-  margin:auto;
 }
 
 audio::-webkit-media-controls-timeline{
   background-color: $primary-color-light;
 }
 
-
-#your-articles{
-  padding:50px;
-  width:100%;
-}
-
 .article .btn-floating{
   margin:5px;
   background-color: $primary-color;
 }
+
 
 #url-error {
   color: red;
@@ -79,12 +74,12 @@ audio::-webkit-media-controls-timeline{
 }
 
 .article{
-  margin-bottom:40px;
+  margin-top:10px;
+  padding-bottom: 60px;
   border-bottom:1px solid $primary-color;
 }
 
 #tabs {
-  width:55%;
   border-bottom:3px solid $primary-color;
 }
 
@@ -94,13 +89,6 @@ audio::-webkit-media-controls-timeline{
   border-radius: 0px 50px 50px 0px;
 }
 
-#history {
-  margin-left: 25%;
-}
-
-#queue {
-  margin-left: 25%;
-}
 
 @media screen and (max-width: 768px) {
   .s3 {
@@ -109,6 +97,56 @@ audio::-webkit-media-controls-timeline{
   }
   .home-link {
     padding-top: 50%;
+  }
+
+}
+
+.your-articles{
+  padding: 20px 0 50px 0;
+  margin-bottom: 50px;
+  width: 80%;
+  margin:auto;
+}
+
+.your-articles .btn-floating{
+  width: 50px;
+  height: 50px;
+  padding: 8px;
+}
+
+
+@media #{$small-and-down}{
+
+  audio::-webkit-media-controls-panel {
+    height: 50px;
+    width:100%;
+  }
+
+  audio::-webkit-media-controls-play-button{
+    height: 40px;
+    width: 40px;
+  }
+
+  audio::-webkit-media-controls-mute-button{
+    height: 50px;
+    width: 50px;
+  }
+
+  audio::-webkit-media-controls-timeline{
+    height:8px;
+  }
+
+  audio::-webkit-media-controls-time-remaining-display{
+    font-size: 1em;
+  }
+
+  audio::-webkit-media-controls-volume-slider-container{
+    width: 20px;
+  }
+
+  audio::-webkit-media-controls-volume-slider{
+    height: 10px;
+    width: 100%;
   }
 
 }

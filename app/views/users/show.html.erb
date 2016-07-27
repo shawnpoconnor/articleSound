@@ -1,43 +1,47 @@
-<%if flash[:notice]%>
-  <div class="notice"><%=flash[:notice]%></div>
-<%end%>
-
-<div class="url-form" id="url-form">
-  <div id="url-error" style></div>
-  <%=form_for @article do |f|%>
-  <div class="row">
-    <div class='input-field col s10 offset-5'>
-      <span class="flow-text">
-        <%=f.label :url, "Article URL"%>
-        <%=f.text_field :url %>
-      </span>
-    </div>
-    <%=f.submit "Read", class:"btn waves-effect waves-orange offset-1 read-button"%>
-  </div>
+<div class="container center-align">
+  <%if flash[:notice]%>
+    <div class="notice row col s12"><%=flash[:notice]%></div>
   <%end%>
-</div>
-<br>
 
-  <div class="center-align audio-player">
+  <div class="url-form col s12" id="url-form">
+    <div id="url-error" style></div>
+    
+    <%=form_for @article do |f|%>
+    
+    <div class="row">
+      <div class='input-field col s10'>
+          <%=f.label :url, "URL"%>
+          <%=f.text_field :url %>
+      </div>
+      <div>
+        <span class="flow-text">
+          <%=f.submit "Read", class:"btn waves-effect waves-orange col s2 read-button"%>
+        </span>
+      </div>
+    </div>
+    <%end%>
+  </div>
+
+  <div class="audio-player">
     <audio id="player" src="#history" controls="controls" autoplay="true"></audio>
   </div>
-<br>
 
-<div id="your-articles" class="row">
-  <table id='tabs'>
-    <tr>
-      <td>
-        <h4 class="center-align" id="history-tab">History</h4>
-      </td>
-      <td class='open-tab'>
-        <h4 class="center-align" id="queue-tab">Queue</h4>
-      </td>
-    </tr>
-  </table>
-  <div class="col s6 inactive" id="history">
-    <%= render 'history', locals: { queue: @history } %>
-  </div>
-  <div class='col s6' id="queue">
-    <%= render 'queue', locals: { queue: @queue } %>
+  <div class="your-articles" >
+    <table id='tabs'>
+      <tr>
+        <td>
+          <h4 class="center-align" id="history-tab">History</h4>
+        </td>
+        <td class="open-tab">
+          <h4 class="center-align" id="queue-tab">Queue</h4>
+        </td>
+      </tr>
+    </table>
+    <div class="col s8 inactive" id="history">
+      <%= render 'history', locals: { queue: @history } %>
+    </div>
+    <div class="col s8" id="queue">
+      <%= render 'queue', locals: { queue: @queue } %>
+    </div>
   </div>
 </div>
