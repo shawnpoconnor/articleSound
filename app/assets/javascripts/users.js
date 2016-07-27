@@ -94,7 +94,7 @@ $(document).ready(function() {
   , position: 'absolute' // Element positioning
   };
 
-   $('.url-form').submit(function(e){
+   $('.url-form').on('submit','#new_article',function(e){
     e.preventDefault();
 
     var target = $(e.target);
@@ -110,6 +110,7 @@ $(document).ready(function() {
       data: { "article" : { "url": entered_url } }
     });
     request.done(function(response){
+      // debugger
       spinner.stop();
       button2.firstChild.style.visibility="visible";
       $('#queue').html(response);
