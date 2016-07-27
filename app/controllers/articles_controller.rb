@@ -7,7 +7,6 @@ class ArticlesController < ApplicationController
 
     if @article.valid?
       userart = UserArticle.find_or_initialize_by(user:current_user, article:@article)
-      UserArticle.create(user:current_user, article:@article)
       if userart.save
         if request.xhr?
           @queue = current_user.user_articles.where(listened: false).order("created_at DESC").limit(5)
