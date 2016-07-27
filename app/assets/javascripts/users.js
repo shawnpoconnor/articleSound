@@ -85,7 +85,7 @@ $(document).ready(function() {
     e.preventDefault();
 
     var target = $(e.target);
-    var button2 = document.getElementsByClassName("read-button")[0];
+    var button2 = document.getElementsById("read-button")[0];
     button2.firstChild.style.visibility="hidden";
     var spinner = new Spinner(opts).spin(button2);
     var entered_url = $('#article_url').val();
