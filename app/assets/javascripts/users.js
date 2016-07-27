@@ -1,7 +1,7 @@
 $(document).ready(function() {
-  Materialize.updateTextFields();
+  // Materialize.updateTextFields();
 
-  $('.play').click(function(e){
+  $('#queue').on('click', '.play', function(e){
     e.preventDefault();
     var pause = this.parentElement.nextElementSibling;
     var url = $(this).data("url");
@@ -24,7 +24,7 @@ $(document).ready(function() {
       $(this).addClass('clicked');
     }
 
-    $(pause).removeClass("inactive");
+  $(pause).removeClass("inactive");
     $(pause).show();
     $(this.parentElement).addClass("inactive");
 
@@ -43,19 +43,17 @@ $(document).ready(function() {
       }
       $(this.parentElement).removeClass('inactive');
     }.bind(this));
-
-
   });
 
 
-  $('.pause').click(function(e){
+  $('#queue').on('click', '.pause', function(e){
     var pause = this.parentElement.previousElementSibling;
     $('#player').get(0).pause();
     $(pause).removeClass("inactive");
     $(this.parentElement).addClass("inactive");
   });
 
-  $('.article').on('click', '.show-text', function(e) {
+  $('#queue').on('click', '.show-text', function(e) {
     var text = this.parentElement.lastChild.previousElementSibling;
     if($(text).is(":hidden")) {
       $('.text-scroll-container').hide();
