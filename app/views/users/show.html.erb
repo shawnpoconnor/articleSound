@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container center-align">
   <%if flash[:notice]%>
     <div class="notice row col s12"><%=flash[:notice]%></div>
   <%end%>
@@ -9,34 +9,38 @@
     <%=form_for @article do |f|%>
     
     <div class="row">
-      <div class='input-field col s9'>
-          <%=f.label :url, "Article URL"%>
+      <div class='input-field col s10'>
+          <%=f.label :url, "URL"%>
           <%=f.text_field :url %>
       </div>
-      <%=f.submit "Read", class:"btn waves-effect waves-orange col s1 read-button"%>
+      <div>
+        <span class="flow-text">
+          <%=f.submit "Read", class:"btn waves-effect waves-orange col s2 read-button"%>
+        </span>
+      </div>
     </div>
     <%end%>
   </div>
 
-  <div class="center-align audio-player">
+  <div class="audio-player">
     <audio id="player" src="#history" controls="controls" autoplay="true"></audio>
   </div>
 
-  <div id="your-articles" class="row col s10">
-    <table id='tabs' class="col s10">
+  <div class="your-articles" >
+    <table id='tabs'>
       <tr>
-        <td class="col s3">
+        <td>
           <h4 class="center-align" id="history-tab">History</h4>
         </td>
-        <td class="open-tab col s3">
+        <td class="open-tab">
           <h4 class="center-align" id="queue-tab">Queue</h4>
         </td>
       </tr>
     </table>
-    <div class="col s10 inactive" id="history">
+    <div class="col s8 inactive" id="history">
       <%= render 'history', locals: { queue: @history } %>
     </div>
-    <div class='col s10' id="queue">
+    <div class="col s8" id="queue">
       <%= render 'queue', locals: { queue: @queue } %>
     </div>
   </div>
