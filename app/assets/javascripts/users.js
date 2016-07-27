@@ -111,15 +111,14 @@ $(document).ready(function() {
     });
     request.done(function(response){
       spinner.stop();
-      document.getElementById("read-button").value = "Read";
-      // button2.firstChild.style.visibility="visible"
+      button2.firstChild.style.visibility="visible";
       $('#queue').html(response);
       button.prop('disabled', false);
       document.getElementById("article_url").value = "";
     });
     request.fail(function(response){
       spinner.stop();
-      document.getElementById("read-button").value = "";
+      button2.firstChild.style.visibility="visible";
       button.prop('disabled', false);
       var errorMessage = JSON.parse(response.responseText).error;
       $('#url-error').html(errorMessage);

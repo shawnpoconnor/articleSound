@@ -6,10 +6,27 @@ class ArticlesController < ApplicationController
     @article = Article.find_or_initialize_by(article_params)
 
     if @article.valid?
-      @audio = Audio.find_by(article_id: @article.id)
+      userart = UserArticle.find_or_initialize_by(user:current_user, article:@article)
       UserArticle.create(user:current_user, article:@article)
-      redirect_to current_user
-      return
+      if userart.save
+        if request.xhr?
+          @queue = current_user.user_articles.where(listened: false).order("created_at DESC").limit(5)
+          render partial: "/users/queue", queue: @queue
+          return
+        else
+          redirect_to current_user
+          return
+        end
+      else
+        if request.xhr?
+          render :json => { :error => "Article already in your queue/history." }.to_json, status: 422
+          return
+        else
+          flash[:notice] = "Article already in your queue/history."
+          redirect_to current_user
+          return
+        end
+      end
     else
       scraper = Scraper.new(@article.url)
       if scraper.valid_url?
