@@ -3,8 +3,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
 
   def index
-    @articles = Article.top_five
-    @user_article = UserArticle.new
+    if logged_in?
+      @articles = Article.top_five(current_user.id)
+      @user_article = UserArticle.new
+    end
   end
 
   def login(user)

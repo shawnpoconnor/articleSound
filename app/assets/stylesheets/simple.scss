@@ -52,7 +52,7 @@ nav li{
 
 .dropdown-button{
   font-size: 1.5rem;
-  padding:10px;
+  padding:10px 0;
 }
 
 nav img{
@@ -105,7 +105,7 @@ dropdown-button{
   position: relative;
 }
 
-#trending{
+.trending-articles{
   color:white;
   width: 50%;
   height:100vh;
@@ -124,13 +124,13 @@ td{
   font-size:18px;
 }
 
- .btn-floating{
-  float:right;  
-  background-color: rgba(0, 0, 250, 0.1);
-  color:white;
-  line-height:0px;
+.btn-floating{
+float:right;  
+background-color: rgba(0, 0, 250, 0.1);
+color:white;
+line-height:0px;
 }
 
 .profile{
   margin-top: 50px;
-  }
+}

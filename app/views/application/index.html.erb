@@ -11,22 +11,12 @@
     </div>
   <%else%>
   <style> {display:none;}</style>
-  <div id="trending" class="center-align">
+  <div class="trending-articles">
     <h2>Trending<i class="material-icons small">trending_up</i></h2>
-      <%@articles.each do |article|%>
-        <table class="bordered">
-        <tr>
-          <td><p><%=article.title%></p></td>
-          <td>
-            <%=form_for @user_article do |f| %>
-              <%=f.hidden_field :article_id, value: article.id %>
-              <%=f.submit "+", class:"btn-floating center-align"%>
-            <% end %>
-          </td>
-        </tr>
-        </table>
-      <%end%>
-      <%=link_to "profile", current_user, class:"profile btn"%>
+    <div id="trending" class="center-align">
+      <%=render 'shared/trending', locals: {articles: @articles}%>
+    </div>
+    <%=link_to "profile", current_user, class:"profile btn center-align"%>
+    <%end%>
   </div>
-  <%end%>
 </div>
