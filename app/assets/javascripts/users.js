@@ -6,6 +6,7 @@ $(document).ready(function() {
     var pause = this.parentElement.nextElementSibling;
     var url = $(this).data("url");
     var a = $(".pause");
+
     for (var i = 0; i < a.length; i ++) {
       var c = $(a[i].parentElement);
         if (!c.hasClass('inactive')) {
@@ -54,6 +55,18 @@ $(document).ready(function() {
     } else {
       $(text).slideToggle();
     }
+  });
+
+  $('#history-tab').click(function(e) {
+
+    $("#queue").removeClass('inactive');
+    $("#history").addClass('inactive');
+  });
+
+  $('#queue-tab').click(function(e) {
+
+    $("#history").removeClass('inactive');
+    $("#queue").addClass('inactive');
   });
 
 
