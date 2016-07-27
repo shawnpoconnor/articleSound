@@ -21,7 +21,8 @@ class Article < ApplicationRecord
 
   def self.top_five(user_id)
     user_articles = User.find(user_id).articles
-    articles = Article.all.reject{|a| user_articles.include?(a)}
-    articles.sort{ |x, y| y.readers <=> x.readers }[0..4]
+    articles_array= Article.all.reject{|a| user_articles.include?(a)}
+    articles = articles_array.sort{ |x, y| y.readers <=> x.readers }[0..4]
+    articles.sort{|x, y| y.created_at <=> x.created_at}
   end
 end
