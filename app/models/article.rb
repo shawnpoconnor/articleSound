@@ -23,6 +23,5 @@ class Article < ApplicationRecord
     user_articles = User.find(user_id).articles
     articles_array= Article.all.reject{|a| user_articles.include?(a)}
     articles = articles_array.sort{ |x, y| y.readers <=> x.readers }[0..4]
-    articles.sort{|x, y| y.created_at <=> x.created_at}
   end
 end
