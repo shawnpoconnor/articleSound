@@ -9,7 +9,7 @@ $(document).ready(function() {
   a.on('click', function(e){
     var url = $(this).attr('data-url');
     player.attr('src', url);
-    player.play();
+
   })
 
   // $('.play').click(function(e){
