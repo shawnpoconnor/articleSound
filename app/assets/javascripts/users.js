@@ -13,6 +13,7 @@ $(document).ready(function() {
     //   $('#player').get(0).play();
     // }else {
       $('#player').prop('src', url);
+      $('#player').get(0).play();
       $(this).addClass('clicked')
     // }
     $(pause).removeClass("inactive");
