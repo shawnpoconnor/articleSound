@@ -26,7 +26,6 @@ $divider-color:        #B6B6B6;
 }
 
 .url-form{
-  width:70%;
   margin: 100px auto 40px;
 }
 
@@ -60,11 +59,6 @@ audio::-webkit-media-controls-timeline{
 }
 
 
-#your-articles{
-  padding:50px;
-  width:100%;
-}
-
 .article .btn-floating{
   margin:5px;
   background-color: $primary-color;
@@ -79,12 +73,10 @@ audio::-webkit-media-controls-timeline{
 }
 
 .article{
-  margin-bottom:40px;
   border-bottom:1px solid $primary-color;
 }
 
 #tabs {
-  width:55%;
   border-bottom:3px solid $primary-color;
 }
 
@@ -112,3 +104,4 @@ audio::-webkit-media-controls-timeline{
   }
 
 }
+
