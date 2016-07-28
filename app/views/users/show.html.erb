@@ -9,31 +9,31 @@
     <%=form_for @article do |f|%>
     
     <div class="row">
-      <div class='input-field col s10'>
+      <div class='input-field col s12 l10'>
           <%=f.label :url, "URL"%>
           <%=f.text_field :url %>
       </div>
       <div>
-        <span class="flow-text">
-          <%=f.submit "Read", class:"btn waves-effect waves-orange col s2 read-button"%>
-        </span>
+          <%=f.submit "Read", class:"btn waves-effect waves-orange read-button"%>
       </div>
     </div>
     <%end%>
   </div>
 
-  <div class="audio-player">
-    <audio id="player" src="#history" controls="controls" autoplay="true"></audio>
+  <div class="audio-player row">
+    <audio id="player"  class="col s12" src="#history" controls="controls" autoplay="true"></audio>
   </div>
 
   <div class="your-articles" >
     <table id='tabs'>
       <tr>
-        <td>
+        <td class='tab'>
           <h4 class="center-align" id="history-tab">History</h4>
         </td>
-        <td class="open-tab">
+        <td class="tab open-tab">
           <h4 class="center-align" id="queue-tab">Queue</h4>
+        </td>
+        <td>
         </td>
       </tr>
     </table>
