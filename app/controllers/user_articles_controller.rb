@@ -14,6 +14,10 @@ class UserArticlesController < ApplicationController
     @user_article = UserArticle.new(article_id: params[:user_article][:article_id], user_id: current_user.id)
     @user_article.save
     @articles = Article.top_five(current_user.id)
-    render partial: "/shared/trending", locals:{articles: @articles}
+    if request.xhr?
+      render partial: "/shared/trending", locals:{articles: @articles}
+    else
+      redirect_to root_url
+    end
   end
 end

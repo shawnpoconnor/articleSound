@@ -3,9 +3,9 @@
       <tr>
         <td><p><%=article.title%></p></td>
         <td>
-          <%=form_for @user_article do |f| %>
+          <%=form_for(@user_article, url:"/user_articles", method: "post") do |f| %>
             <%=f.hidden_field :article_id, value: article.id %>
-            <%=f.submit "+", class:"btn-floating center-align"%>
+            <%=f.submit "+", class:"btn-floating"%>
           <% end %>
         </td>
       </tr>

@@ -1,22 +1,33 @@
-<style>nav {display:none;}</style>
-
-<div id="homepage" class="center-align">
-  <div id="color_transparency"></div>
-
-  <%if !logged_in?%>
-    <%=image_tag ('logo')%>
-    <div id="links">
-      <div class="btn"><%=link_to "register", register_path, class:"white-text"%></div>
-      <div class="btn"><%=link_to "login", login_path, class:"white-text"%></div>
+<div class='container'>
+ <style>nav {display:none;}</style>
+    <div id="homepage" class="center-align valign-wrapper">
+      <div id="color_transparency"></div>
+      <%if !logged_in?%>
+        <div class="welcome-banner">
+          <%=image_tag ('logo'), class:'responsive-img'%>
+          <div id="links">
+            <div class="row">
+              <div class="btn login-btn col s4 offset-s4">
+                <%=link_to "register", register_path%>
+              </div>`
+            </div>
+            <div class="row">
+              <div class="btn login-btn col s4 offset-s4">
+                <%=link_to "login", login_path %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <%else%>
+        <div class="trending-articles container">
+          <h2>Trending<i class="material-icons small">trending_up</i></h2>
+            <div class="row ">
+              <div id="trending" class="trending col s9">
+                <%=render 'shared/trending', locals: {articles: @articles}%>
+              </div>
+            </div>
+          <%=link_to "back to profile", current_user, class:"btn"%>
+        </div>
+      <%end%>
     </div>
-  <%else%>
-  <style> {display:none;}</style>
-  <div class="trending-articles">
-    <h2>Trending<i class="material-icons small">trending_up</i></h2>
-    <div id="trending" class="center-align">
-      <%=render 'shared/trending', locals: {articles: @articles}%>
-    </div>
-    <%=link_to "profile", current_user, class:"profile btn center-align"%>
-    <%end%>
-  </div>
 </div>
