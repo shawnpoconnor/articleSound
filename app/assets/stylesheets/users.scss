@@ -84,8 +84,9 @@ audio::-webkit-media-controls-timeline{
   margin-top:10%;
   border-bottom:3px solid $primary-color;
 
+
   td{
-    padding: 0px 5px
+    padding: 0px 5px;
   }
 }
 
@@ -114,6 +115,8 @@ td h4{
     padding: 8px;
   }
 }
+
+
 
 @media #{$small-and-down}{
   #player{
@@ -157,4 +160,3 @@ td h4{
     width: 100%;
   }
 }
-
