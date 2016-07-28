@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
-  has_many :user_articles
-  has_many :users, through: :user_articles, dependent: :destroy
+  has_many :user_articles, dependent: :destroy
+  has_many :users, through: :user_articles
   has_one :audio
 
   validates :text, presence:true, uniqueness:true

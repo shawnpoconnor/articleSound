@@ -8,11 +8,13 @@ class Scraper
     "news.fastcompany.com": ".first-post-content",
     "www.fastcompany.com":  "article",
     "www.wired.com":        "article",
-    "www.theatlantic.com":  "#article-section-1",
+    "www.theatlantic.com":  ".article-body",
     "nypost.com":           ".entry-content",
     "www.bbc.com":          ".story-body__inner",
     "kotaku.com":           ".post-content",
-    "pitchfork.com":        ".contents"
+    "pitchfork.com":        ".contents",
+    "www.washingtonpost.com": "article",
+    "www.theonion.com":     ".content-text"
   }
 
   attr_accessor :url, :domain, :text, :title, :doc, :doc_body
@@ -111,12 +113,7 @@ class Scraper
   end
 
   def scrape_text
-    first_sentence = doc_body.text.match(/\.*./)
-    if first_sentence
-      @text = doc_body.text
-    else
-      @text = title + " " + doc_body.text
-    end
+    @text = doc_body.text
     # npr escaped double quotes were breaking watson calls
     @text.gsub!("\""," ")
   end
@@ -133,6 +130,6 @@ class Scraper
   # Shorter watson calls as delete_file works on heroku
 
   def text_length_development
-    @text = text[0, 100]
+    @text = text[0, 1000]
   end
 end

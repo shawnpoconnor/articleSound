@@ -1,10 +1,10 @@
 $(document).ready(function() {
   $(".button-collapse").sideNav({
-    menuWidth: 200, 
+    menuWidth: 200,
     edge: 'left',
-    closeOnClick: true 
+    closeOnClick: true
   });
-  $('#new_user_article').submit(function(e){
+  $('#trending').on('submit','#new_user_article',function(e){
     e.preventDefault();
     $.ajax({
       url: $(this).attr('action'),
@@ -12,9 +12,9 @@ $(document).ready(function() {
       data:$(this).serialize()
     }).done(function(response){
       $('#trending').html(response);
-    })
-  })
-})
+    });
+  });
+});
 
 
-        
+
