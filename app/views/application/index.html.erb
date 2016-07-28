@@ -1,29 +1,33 @@
 <div class='container'>
-<style>nav {display:none;}</style>
-  <div id="homepage">
-    <div id="color_transparency"></div>
-    <%if !logged_in?%>
-      <div class="row welcome-banner">
-        <%=image_tag ('logo'), class:'logo col s8 offset-s2'%>
-        <div id="links">
-          <div class="btn login-btn col s3 offset-s2">
-            <%=link_to "register", register_path, class:"white-text home-link" %>
-          </div>
-          <div class="btn login-btn col s3 offset-s2">
-            <%=link_to "login", login_path, class:"white-text home-link" %>
+ <style>nav {display:none;}</style>
+    <div id="homepage" class="center-align valign-wrapper">
+      <div id="color_transparency"></div>
+      <%if !logged_in?%>
+        <div class="welcome-banner">
+          <%=image_tag ('logo'), class:'responsive-img'%>
+          <div id="links">
+            <div class="row">
+              <div class="btn login-btn col s4 offset-s4">
+                <%=link_to "register", register_path%>
+              </div>`
+            </div>
+            <div class="row">
+              <div class="btn login-btn col s4 offset-s4">
+                <%=link_to "login", login_path %>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    <%else%>
-    <div class="trending-articles container">
-      <div class="row">
-        <h2 class="center-align">Trending<i class="material-icons small">trending_up</i></h2>
-        <div id="trending">
-          <%=render 'shared/trending', locals: {articles: @articles}%>
+      <%else%>
+        <div class="trending-articles container">
+          <h2>Trending<i class="material-icons small">trending_up</i></h2>
+            <div class="row ">
+              <div class="trending col s9">
+                <%=render 'shared/trending', locals: {articles: @articles}%>
+              </div>
+            </div>
+          <%=link_to "back to profile", current_user, class:"btn"%>
         </div>
-        <%=link_to "profile", current_user, class:"profile btn col s2 offset-s5"%>
-      </div>
       <%end%>
     </div>
-  </div>
 </div>

@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $(".button-collapse").sideNav({
-    menuWidth: 200, // Default is 240
-    edge: 'right', // Choose the horizontal origin
+    menuWidth: 200, 
+    edge: 'left',
     closeOnClick: true 
   });
   $('#new_user_article').submit(function(e){

@@ -38,21 +38,19 @@ $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width 
 }
 
 .url-form{
-  margin: 50px auto 20px auto;
+  margin: 40px auto 20px auto;
   text-align: center;
+  line-height: 2rem;
 }
 
 #player{
-  width:100%;
-  margin-bottom:60px;
-  padding:20px;
+  margin:50px 0;
 }
 
 audio::-webkit-media-controls-panel {
   background-color: $primary-color;
-  height: 70px;
+  height: 80px;
   width:100%;
-  padding: 10px;
 }
 
 audio::-webkit-media-controls-timeline{
@@ -64,9 +62,12 @@ audio::-webkit-media-controls-timeline{
   background-color: $primary-color;
 }
 
-
 #url-error {
   color: red;
+}
+
+.read-button{
+  color:$primary-color;
 }
 
 .btn-floating:hover{
@@ -75,12 +76,17 @@ audio::-webkit-media-controls-timeline{
 
 .article{
   margin-top:10px;
-  padding-bottom: 60px;
+  padding: 0 0 60px 0;
   border-bottom:1px solid $primary-color;
 }
 
 #tabs {
+  margin-top:10%;
   border-bottom:3px solid $primary-color;
+
+  td{
+    padding: 0px 5px
+  }
 }
 
 .open-tab {
@@ -89,36 +95,38 @@ audio::-webkit-media-controls-timeline{
   border-radius: 0px 50px 50px 0px;
 }
 
+.tab {
+  width: 100px;
+}
 
-@media screen and (max-width: 768px) {
-  .s3 {
-    height:75px;
-    font-size: 200%;
-  }
-  .home-link {
-    padding-top: 50%;
-  }
-
+td h4{
+  font-size:1.5rem;
 }
 
 .your-articles{
-  padding: 20px 0 50px 0;
-  margin-bottom: 50px;
+  padding-bottom: 100px;
   width: 80%;
   margin:auto;
-}
 
-.your-articles .btn-floating{
-  width: 50px;
-  height: 50px;
-  padding: 8px;
+  .btn-floating{
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+  }
 }
-
 
 @media #{$small-and-down}{
+  #player{
+    position:fixed;
+    bottom:0;
+    left:0;
+    z-index:2;
+    padding:0;
+    margin-bottom:30px;
+  }
 
   audio::-webkit-media-controls-panel {
-    height: 50px;
+    height: 60px;
     width:100%;
   }
 
@@ -150,6 +158,3 @@ audio::-webkit-media-controls-timeline{
   }
 }
 
-.tab {
-  width: 100px;
-}
