@@ -21,11 +21,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
     if @user.update_attributes(user_params)
       flash.now[:notice]="User updated."
       redirect_to @user
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
     @article = Article.new
     @history = @user.user_articles.where(listened: true).order("updated_at DESC").limit(5)
     @queue = @user.user_articles.where(listened: false).order("created_at DESC").limit(5)
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
   def destroy
     log_out
-    User.find(params[:id]).destroy
+    User.find_by(id: params[:id]).destroy
     redirect_to root_url
   end
 
@@ -76,7 +76,7 @@ class UsersController < ApplicationController
       flash.now[:notice]="Please log in."
       redirect_to login_url
     else
-      @user = User.find(params[:id])
+      @user = User.find_by(id: params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
   end
