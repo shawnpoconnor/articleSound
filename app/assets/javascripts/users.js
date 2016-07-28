@@ -45,6 +45,50 @@ $(document).ready(function() {
     }.bind(this));
   });
 
+$('#history').on('click', '.play', function(e){
+    e.preventDefault();
+    var pause = this.parentElement.nextElementSibling;
+    var url = $(this).data("url");
+    var a = $(".pause");
+
+    for (var i = 0; i < a.length; i ++) {
+      var c = $(a[i].parentElement);
+        if (!c.hasClass('inactive')) {
+          c.addClass('inactive');
+        }
+        }
+    var b = $(".play");
+      for (i = 0; i < b.length; i ++){ $(b[i].parentElement).removeClass('inactive'); }
+
+    $(this.parentElement).addClass('last-play');
+    if($(this).hasClass('clicked')) {
+      $('#player').get(0).play();
+    }else {
+      $('#player').prop('src', url);
+      $(this).addClass('clicked');
+    }
+
+  $(pause).removeClass("inactive");
+    $(pause).show();
+    $(this.parentElement).addClass("inactive");
+
+    $('#player').on('ended', function(){
+      var id = $(this).data("id");
+      var new_history = document.getElementById(id);
+      $(new_history).remove();
+      $('#history').append(new_history);
+      $.ajax({
+        url: '/user_articles/'+ id,
+        method: 'patch'
+      });
+      var isPause = $(this.parentElement.nextElementSibling);
+      if ( isPause[0].children[0].className == 'pause'){
+        isPause.addClass('inactive')
+      }
+      $(this.parentElement).removeClass('inactive');
+    }.bind(this));
+  });
+
 
   $('#queue').on('click', '.pause', function(e){
     var pause = this.parentElement.previousElementSibling;
@@ -53,7 +97,25 @@ $(document).ready(function() {
     $(this.parentElement).addClass("inactive");
   });
 
+
+  $('#history').on('click', '.pause', function(e){
+    var pause = this.parentElement.previousElementSibling;
+    $('#player').get(0).pause();
+    $(pause).removeClass("inactive");
+    $(this.parentElement).addClass("inactive");
+  });
+
   $('#queue').on('click', '.show-text', function(e) {
+    var text = this.parentElement.lastChild.previousElementSibling;
+    if($(text).is(":hidden")) {
+      $('.text-scroll-container').hide();
+      $(text).slideToggle();
+    } else {
+      $(text).slideToggle();
+    }
+  });
+
+    $('#history').on('click', '.show-text', function(e) {
     var text = this.parentElement.lastChild.previousElementSibling;
     if($(text).is(":hidden")) {
       $('.text-scroll-container').hide();
