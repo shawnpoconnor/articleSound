@@ -8,6 +8,7 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
    <script src="http://spin.js.org/spin.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
   </head>
 
   <body>
@@ -15,8 +16,8 @@
       <div class="nav-wrapper">
         <a class="brand-logo" href="/"><%=image_tag("logo")%></a>
         <% if logged_in? %>
-        <a href="#" data-activates="mobile" class="button-collapse right"><i class="large material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
+        <a href="#" data-activates="mobile" class="button-collapse left"><i class="large material-icons">menu</i></a>
+          <ul class="left hide-on-med-and-down">
             <ul id="dropdown1" class="dropdown-content">
               <li><%=link_to "edit", edit_user_path(current_user)%></li>
               <li><%=link_to "logout", logout_path, method:"delete"%></li>
