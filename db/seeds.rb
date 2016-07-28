@@ -26,26 +26,26 @@ users = []
   end
 end
 
-urls= [ "http://www.cnn.com/2016/07/26/opinions/why-terrorist-attacks-opinion-peter-bergen/index.html",
+urls= [ "http://www.npr.org/sections/thetwo-way/2016/07/28/487775814/ancient-bone-shows-evidence-of-cancer-in-human-ancestor",
         "http://kotaku.com/the-new-sonic-the-hedgehog-game-is-reimagined-old-sonic-1784168746",
-        "https://medium.com/@ICRC/life-and-loss-in-south-sudan-165eaad7107e#.nohhkewuo",
+        "http://espn.go.com/nba/story/_/id/17138002/team-usa-too-talented-challenged-exhibition-games",
         "http://espn.go.com/nfl/story/_/id/17150906/pete-carroll-seattle-seahawks-agree-contract-extension",
         "http://www.npr.org/2016/07/24/487242426/bernie-sanders-dnc-emails-outrageous-but-not-a-shock",
-        "http://www.cnn.com/2016/07/10/opinions/hillary-clinton-biography-carl-bernstein/index.html",
+        "http://espn.go.com/mlb/story/_/id/17143857/chicago-white-sox-teammates-welcome-back-chris-sale",
         "http://www.fastcompany.com/3062234/tim-cooks-apple/four-reasons-why-betting-against-apple-is-a-fools-game",
         "http://kotaku.com/twitch-streamer-swatted-while-playing-pokemon-go-outsid-1784309781",
-        "http://www.npr.org/2016/07/26/487550122/bill-clinton-to-headline-second-day-of-the-democratic-national-convention",
+        "http://www.cnn.com/2016/07/28/health/mystery-light-sky/index.html",
         "http://espn.go.com/nba/story/_/id/17145557/the-orlando-magic-fighting-become-viable-again",
-        "https://medium.com/@stevemagness/no-one-really-wants-a-whistle-blower-russia-the-ioc-and-doping-6c0c2461bba7#.grgp7g5yj",
-        "http://www.wired.com/2016/07/welcome-bizarro-world-trump-supporters-reddit/",
+        "http://espn.go.com/nba/story/_/id/17165522/new-york-knicks-carmelo-anthony-believe-dwyane-wade-left-miami-heat",
+        "http://www.wired.com/2016/07/meet-designer-behind-cinemas-iconic-movie-titles/",
         "https://www.wired.com/2016/07/tesla-gigafactory-elon-musk/",
-        "http://www.cnn.com/2016/07/27/us/baltimore-freddie-gray-prosecutor/index.html",
+        "http://www.wired.com/2016/07/mtv-classic-90s-nostalgia/",
         "http://www.theatlantic.com/business/archive/2016/07/paygap-discrimination/492965/",
-        "http://www.theatlantic.com/business/archive/2016/07/the-visa-for-people-officially-deemed-extraordinary/493130/",
+        "http://www.theatlantic.com/science/archive/2016/07/whats-it-like-to-see-ideas-as-shapes/492032/",
         "http://nypost.com/2016/07/27/hero-cops-drove-off-with-ticking-bomb-to-protect-bystanders/",
-        "https://www.washingtonpost.com/politics/trump-invites-russia-to-meddle-in-the-us-presidential-race-with-clintons-emails/2016/07/27/a85d799e-5414-11e6-b7de-dfe509430c39_story.html?hpid=hp_hp-top-table-main_russiacampaign-420pm%3Ahomepage%2Fstory",
-        "https://www.washingtonpost.com/world/turkish-authorities-to-shut-down-dozens-of-media-outlets/2016/07/27/d1c8454c-542e-11e6-b652-315ae5d4d4dd_story.html?hpid=hp_hp-more-top-stories_ap-turkey-505pm%3Ahomepage%2Fstory",
-        "http://www.theonion.com/article/wow-dad-really-went-zero-60-woodworking-summer-53349",
+        "https://www.washingtonpost.com/entertainment/theater_dance/another-fanciful-oddball-gravity-defying-journey-from-cirque-du-soleil/2016/07/25/6a5cbf36-5286-11e6-bbf5-957ad17b4385_story.html?hpid=hp_hp-cards_hp-card-arts%3Ahomepage%2Fcard",
+        "http://www.npr.org/sections/alltechconsidered/2016/07/28/486755823/writing-data-onto-single-atoms-scientists-store-the-longest-text-yet",
+        "http://www.theonion.com/article/teen-had-absolutely-no-say-becoming-part-snapchat--53187",
         "http://www.theonion.com/article/nasa-announces-bold-plan-still-exist-2045-50398"
       ]
 
