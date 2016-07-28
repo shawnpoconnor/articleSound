@@ -9,10 +9,10 @@ $(document).ready(function() {
 
     for (var i = 0; i < a.length; i ++) {
       var c = $(a[i].parentElement);
-        if (!c.hasClass('inactive')) {
-          c.addClass('inactive');
-        }
-        }
+      if (!c.hasClass('inactive')) {
+        c.addClass('inactive');
+      }
+    }
     var b = $(".play");
       for (i = 0; i < b.length; i ++){ $(b[i].parentElement).removeClass('inactive'); }
 
