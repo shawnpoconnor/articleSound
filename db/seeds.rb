@@ -16,6 +16,7 @@ admins << brun
 admins << shawno
 admins << kitty
 users = []
+
 10.times do
   user = User.new( username:Faker::Name.first_name,
                         password:"password12345",
