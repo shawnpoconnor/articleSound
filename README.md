@@ -10,18 +10,6 @@ API Reference
 
 Built using the IBM Bluemix Watson Text-to-Speech REST API (view documentation).
 
-Screenshots
-
-welcome
-
-register
-
-profile
-
-Tests
-
-in progress. This app will be fully tested using Rspec-Rails and Capybara.
-
 Contributors
 
 Brian Lee
