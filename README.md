@@ -1,24 +1,32 @@
-# README
+README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ArticleSound
 
-Things you may want to cover:
+ArticleSound is a web app that allows users to easily convert news article URLs into audio recordings. It was built by our team of 3 within a week using the Watson Text-to-Speech API, Ruby on Rails, Postgresql, jQuery, Materialize-Sass, AWS S3, and Heroku.
 
-* Ruby version
+ArticleSound is live at: http://www.articlesound.com
 
-* System dependencies
+API Reference
 
-* Configuration
+Built using the IBM Bluemix Watson Text-to-Speech REST API (view documentation).
 
-* Database creation
+Screenshots
 
-* Database initialization
+welcome
 
-* How to run the test suite
+register
 
-* Services (job queues, cache servers, search engines, etc.)
+profile
 
-* Deployment instructions
+Tests
 
-* ...
+in progress. This app will be fully tested using Rspec-Rails and Capybara.
+
+Contributors
+
+Brian Lee
+Shawn O'Connor
+Caitlin Chai
+MIT License
+
+see MIT license for more information.
